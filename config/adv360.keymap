@@ -29,6 +29,11 @@
       };
     };
 
+#define LAYER_default 0
+#define LAYER_keypad  1
+#define LAYER_fn      2
+#define LAYER_mod     3
+#define LAYER_factory 4
   keymap {
     compatible = "zmk,keymap";
 
@@ -41,9 +46,9 @@
         /* 3     */ &kp N3
         /* 4     */ &kp N4
         /* 5     */ &kp N5
-        /* KPAD  */ &tog 1
+        /* KPAD  */ &tog LAYER_keypad
         // Row 1 Right
-        /* MOD   */ &mo 3
+        /* MOD   */ &mo LAYER_mod
         /* 6     */ &kp N6
         /* 7     */ &kp N7
         /* 8     */ &kp N8
@@ -105,7 +110,7 @@
         /* FSLSH */ &kp FSLH
         /* RSHFT */ &kp RSHFT
         // Row 5 Left
-        /* LFN   */ &mo 2
+        /* LFN   */ &mo LAYER_fn
         /* BQUOT */ &kp GRAVE
         /* CAPS  */ &kp CAPS
         /* LEFT  */ &kp LEFT
@@ -122,7 +127,7 @@
         /* DOWN  */ &kp DOWN
         /* LBRCE */ &kp LBKT
         /* RBRCE */ &kp RBKT
-        /* RFN   */ &mo 2
+        /* RFN   */ &mo LAYER_fn
       >;
     };
     keypad {
@@ -136,7 +141,7 @@
         /* 5     */ &kp N5
         /* KPAD  */ &trans
         // Row 1 Right
-        /* MOD   */ &mo 3
+        /* MOD   */ &mo LAYER_mod
         /* 6     */ &kp N6
         /* 7     */ &kp KP_NUM
         /* 8     */ &kp KP_EQUAL
@@ -198,7 +203,7 @@
         /* FSLSH */ &kp KP_ENTER
         /* RSHFT */ &kp RSHFT
         // Row 5 Left
-        /* LFN   */ &mo 2
+        /* LFN   */ &mo LAYER_fn
         /* BQUOT */ &kp GRAVE
         /* CAPS  */ &kp CAPS
         /* LEFT  */ &kp LEFT
@@ -215,7 +220,7 @@
         /* DOWN  */ &kp DOWN
         /* LBRCE */ &kp KP_DOT
         /* RBRCE */ &kp RBKT
-        /* RFN   */ &mo 2
+        /* RFN   */ &mo LAYER_fn
       >;
     };
     fn {
@@ -227,9 +232,9 @@
         /* 3     */ &kp F4
         /* 4     */ &kp F5
         /* 5     */ &kp F6
-        /* KPAD  */ &tog 1
+        /* KPAD  */ &tog LAYER_keypad
         // Row 1 Right
-        /* MOD   */ &mo 3
+        /* MOD   */ &mo LAYER_mod
         /* 6     */ &kp F7
         /* 7     */ &kp F8
         /* 8     */ &kp F9
@@ -413,9 +418,9 @@
         /* 3     */ &kp N3
         /* 4     */ &kp N4
         /* 5     */ &kp N5
-        /* KPAD  */ &tog 1
+        /* KPAD  */ &tog LAYER_keypad
         // Row 1 Right
-        /* MOD   */ &mo 3
+        /* MOD   */ &mo LAYER_mod
         /* 6     */ &kp N6
         /* 7     */ &kp N7
         /* 8     */ &kp N8
@@ -477,7 +482,7 @@
         /* FSLSH */ &kp FSLH
         /* RSHFT */ &kp RSHFT
         // Row 5 Left
-        /* LFN   */ &mo 2
+        /* LFN   */ &mo LAYER_fn
         /* BQUOT */ &kp GRAVE
         /* CAPS  */ &kp CAPS
         /* LEFT  */ &kp LEFT
@@ -494,7 +499,7 @@
         /* DOWN  */ &kp DOWN
         /* LBRCE */ &kp LBKT
         /* RBRCE */ &kp RBKT
-        /* RFN   */ &mo 2
+        /* RFN   */ &mo LAYER_fn
       >;
     };
   };
