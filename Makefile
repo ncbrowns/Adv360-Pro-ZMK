@@ -22,6 +22,8 @@ all:
 		-e BUILD_RIGHT=true \
 		zmk
 	git checkout config/version.dtsi
+	cp firmware/$(TIMESTAMP)-$(COMMIT)-left.uf2 left.uf2
+	cp firmware/$(TIMESTAMP)-$(COMMIT)-right.uf2 right.uf2
 
 left:
 	$(shell bin/get_version.sh >> /dev/null)
