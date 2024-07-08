@@ -34,137 +34,467 @@
 
     default_layer {
       bindings = <
-        // row 1
-        &kp EQUAL
-        &kp N1
-        &kp N2
-        &kp N3
-        &kp N4
-        &kp N5
-
-        &tog 1
-        &mo 3
-
-        &kp N6
-        &kp N7
-        &kp N8
-        &kp N9
-        &kp N0
-        &kp MINUS
-
-        // row 2
-        &kp TAB
-        &kp Q
-        &kp W
-        &kp E
-        &kp R
-        &kp T
-
-        &kp INS
-        &kp INS
-
-        &kp Y
-        &kp U
-        &kp I
-        &kp O
-        &kp P
-        &kp BSLH
-
-        // row 3
-        &kp ESC
-        &left_pinky LGUI A
-        &left_ring1 LALT S
-        &left_middy LCTRL D
-        &left_index LSHFT F
-        &kp G
-
-        &to 4
-        &kp LCTRL
-        &kp LALT
-        &kp LGUI
-        &kp RCTRL
-        &none
-
-        &kp H
-        &right_index RSHFT J
-        &right_middy RCTRL K
-        &right_ring1 RALT L
-        &right_pinky RGUI SEMI
-        &kp SQT
- 
-        // row 4
-        &kp LSHFT
-        &kp Z
-        &kp X
-        &kp C
-        &kp V
-        &kp B
-
-        &kp HOME
-        &kp PG_UP
-
-        &kp N
-        &kp M
-        &kp COMMA
-        &kp DOT
-        &kp FSLH
-        &kp RSHFT
-
-        // row 5
-        &mo 2
-        &kp GRAVE
-        &kp CAPS
-        &kp LEFT
-        &kp RIGHT
-
-        &kp BSPC
-        &kp DEL
-        &kp END
-        &kp PG_DN
-        &kp ENTER
-        &kp SPACE
-
-        &kp UP
-        &kp DOWN
-        &kp LBKT
-        &kp RBKT
-        &mo 2
+        // Row 1 Left
+        /* EQUAL */ &kp EQUAL
+        /* 1     */ &kp N1
+        /* 2     */ &kp N2
+        /* 3     */ &kp N3
+        /* 4     */ &kp N4
+        /* 5     */ &kp N5
+        /* KPAD  */ &tog 1
+        // Row 1 Right
+        /* MOD   */ &mo 3
+        /* 6     */ &kp N6
+        /* 7     */ &kp N7
+        /* 8     */ &kp N8
+        /* 9     */ &kp N9
+        /* 0     */ &kp N0
+        /* MINUS */ &kp MINUS
+        // Row 2 Left
+        /* TAB   */ &kp TAB
+        /* Q     */ &kp Q
+        /* W     */ &kp W
+        /* E     */ &kp E
+        /* R     */ &kp R
+        /* T     */ &kp T
+        /* M1    */ &kp INS
+        // Row 2 Right
+        /* M3    */ &kp INS
+        /* Y     */ &kp Y
+        /* U     */ &kp U
+        /* I     */ &kp I
+        /* O     */ &kp O
+        /* P     */ &kp P
+        /* BSLSH */ &kp BSLH
+        // Row 3 Left
+        /* ESC   */ &kp ESC
+        /* A     */ &left_pinky LGUI A
+        /* S     */ &left_ring1 LALT S
+        /* D     */ &left_middy LCTRL D
+        /* F     */ &left_index LSHFT F
+        /* G     */ &kp G
+        /* M2    */ &to 4
+        // Row 3 Center
+        /* LCTRL */ &kp LCTRL
+        /* LALT  */ &kp LALT
+        /* LWIN  */ &kp LGUI
+        /* RCTRL */ &kp RCTRL
+        // Row 3 Right
+        /* M4    */ &none
+        /* H     */ &kp H
+        /* J     */ &right_index RSHFT J
+        /* K     */ &right_middy RCTRL K
+        /* L     */ &right_ring1 RALT L
+        /* SEMIC */ &right_pinky RGUI SEMI
+        /* SQUOT */ &kp SQT
+        // Row 4 Left
+        /* LSHFT */ &kp LSHFT
+        /* Z     */ &kp Z
+        /* X     */ &kp X
+        /* C     */ &kp C
+        /* V     */ &kp V
+        /* B     */ &kp B
+        // Row 4 Center
+        /* HOME  */ &kp HOME
+        /* PGUP  */ &kp PG_UP
+        // Row 4 Right
+        /* N     */ &kp N
+        /* M     */ &kp M
+        /* COMMA */ &kp COMMA
+        /* DOT   */ &kp DOT
+        /* FSLSH */ &kp FSLH
+        /* RSHFT */ &kp RSHFT
+        // Row 5 Left
+        /* LFN   */ &mo 2
+        /* BQUOT */ &kp GRAVE
+        /* CAPS  */ &kp CAPS
+        /* LEFT  */ &kp LEFT
+        /* RIGHT */ &kp RIGHT
+        // Row 5 Center
+        /* BKSP  */ &kp BSPC
+        /* DEL   */ &kp DEL
+        /* END   */ &kp END
+        /* PGDN  */ &kp PG_DN
+        /* ENTER */ &kp ENTER
+        /* SPACE */ &kp SPACE
+        // Row 5 Right
+        /* UP    */ &kp UP
+        /* DOWN  */ &kp DOWN
+        /* LBRCE */ &kp LBKT
+        /* RBRCE */ &kp RBKT
+        /* RFN   */ &mo 2
       >;
     };
     keypad {
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        // Row 1 Left
+        /* EQUAL */ &kp EQUAL
+        /* 1     */ &kp N1
+        /* 2     */ &kp N2
+        /* 3     */ &kp N3
+        /* 4     */ &kp N4
+        /* 5     */ &kp N5
+        /* KPAD  */ &trans
+        // Row 1 Right
+        /* MOD   */ &mo 3
+        /* 6     */ &kp N6
+        /* 7     */ &kp KP_NUM
+        /* 8     */ &kp KP_EQUAL
+        /* 9     */ &kp KP_DIVIDE
+        /* 0     */ &kp KP_MULTIPLY
+        /* MINUS */ &kp MINUS
+        // Row 2 Left
+        /* TAB   */ &kp TAB
+        /* Q     */ &kp Q
+        /* W     */ &kp W
+        /* E     */ &kp E
+        /* R     */ &kp R
+        /* T     */ &kp T
+        /* M1    */ &none
+        // Row 2 Right
+        /* M3    */ &none
+        /* Y     */ &kp Y
+        /* U     */ &kp KP_N7
+        /* I     */ &kp KP_N8
+        /* O     */ &kp KP_N9
+        /* P     */ &kp KP_MINUS
+        /* BSLSH */ &kp BSLH
+        // Row 3 Left
+        /* ESC   */ &kp ESC
+        /* A     */ &kp A
+        /* S     */ &kp S
+        /* D     */ &kp D
+        /* F     */ &kp F
+        /* G     */ &kp G
+        /* M2    */ &none
+        // Row 3 Center
+        /* LCTRL */ &kp LCTRL
+        /* LALT  */ &kp LALT
+        /* LWIN  */ &kp LGUI
+        /* RCTRL */ &kp RCTRL
+        // Row 3 Right
+        /* M4    */ &none
+        /* H     */ &kp H
+        /* J     */ &kp KP_N4
+        /* K     */ &kp KP_N5
+        /* L     */ &kp KP_N6
+        /* SEMIC */ &kp KP_PLUS
+        /* SQUOT */ &kp SQT
+        // Row 4 Left
+        /* LSHFT */ &kp LSHFT
+        /* Z     */ &kp Z
+        /* X     */ &kp X
+        /* C     */ &kp C
+        /* V     */ &kp V
+        /* B     */ &kp B
+        // Row 4 Center
+        /* HOME  */ &kp HOME
+        /* PGUP  */ &kp PG_UP
+        // Row 4 Right
+        /* N     */ &kp N
+        /* M     */ &kp KP_N1
+        /* COMMA */ &kp KP_N2
+        /* DOT   */ &kp KP_N3
+        /* FSLSH */ &kp KP_ENTER
+        /* RSHFT */ &kp RSHFT
+        // Row 5 Left
+        /* LFN   */ &mo 2
+        /* BQUOT */ &kp GRAVE
+        /* CAPS  */ &kp CAPS
+        /* LEFT  */ &kp LEFT
+        /* RIGHT */ &kp RIGHT
+        // Row 5 Center
+        /* BKSP  */ &kp BSPC
+        /* DEL   */ &kp DEL
+        /* END   */ &kp END
+        /* PGDN  */ &kp PG_DN
+        /* ENTER */ &kp ENTER
+        /* SPACE */ &kp KP_N0
+        // Row 5 Right
+        /* UP    */ &kp UP
+        /* DOWN  */ &kp DOWN
+        /* LBRCE */ &kp KP_DOT
+        /* RBRCE */ &kp RBKT
+        /* RFN   */ &mo 2
       >;
     };
     fn {
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
+        // Row 1 Left
+        /* EQUAL */ &kp F1
+        /* 1     */ &kp F2
+        /* 2     */ &kp F3
+        /* 3     */ &kp F4
+        /* 4     */ &kp F5
+        /* 5     */ &kp F6
+        /* KPAD  */ &tog 1
+        // Row 1 Right
+        /* MOD   */ &mo 3
+        /* 6     */ &kp F7
+        /* 7     */ &kp F8
+        /* 8     */ &kp F9
+        /* 9     */ &kp F10
+        /* 0     */ &kp F11
+        /* MINUS */ &kp F12
+        // Row 2 Left
+        /* TAB   */ &trans
+        /* Q     */ &trans
+        /* W     */ &trans
+        /* E     */ &trans
+        /* R     */ &trans
+        /* T     */ &trans
+        /* M1    */ &none
+        // Row 2 Right
+        /* M3    */ &none
+        /* Y     */ &trans
+        /* U     */ &trans
+        /* I     */ &trans
+        /* O     */ &trans
+        /* P     */ &trans
+        /* BSLSH */ &trans
+        // Row 3 Left
+        /* ESC   */ &trans
+        /* A     */ &trans
+        /* S     */ &trans
+        /* D     */ &trans
+        /* F     */ &trans
+        /* G     */ &trans
+        /* M2    */ &none
+        // Row 3 Center
+        /* LCTRL */ &trans
+        /* LALT  */ &trans
+        /* LWIN  */ &trans
+        /* RCTRL */ &trans
+        // Row 3 Right
+        /* M4    */ &none
+        /* H     */ &trans
+        /* J     */ &trans
+        /* K     */ &trans
+        /* L     */ &trans
+        /* SEMIC */ &trans
+        /* SQUOT */ &trans
+        // Row 4 Left
+        /* LSHFT */ &trans
+        /* Z     */ &trans
+        /* X     */ &trans
+        /* C     */ &trans
+        /* V     */ &trans
+        /* B     */ &trans
+        // Row 4 Center
+        /* HOME  */ &trans
+        /* PGUP  */ &trans
+        // Row 4 Right
+        /* N     */ &trans
+        /* M     */ &trans
+        /* COMMA */ &trans
+        /* DOT   */ &trans
+        /* FSLSH */ &trans
+        /* RSHFT */ &trans
+        // Row 5 Left
+        /* LFN   */ &trans
+        /* BQUOT */ &trans
+        /* CAPS  */ &trans
+        /* LEFT  */ &trans
+        /* RIGHT */ &trans
+        // Row 5 Center
+        /* BKSP  */ &trans
+        /* DEL   */ &trans
+        /* END   */ &trans
+        /* PGDN  */ &trans
+        /* ENTER */ &trans
+        /* SPACE */ &trans
+        // Row 5 Right
+        /* UP    */ &trans
+        /* DOWN  */ &trans
+        /* LBRCE */ &trans
+        /* RBRCE */ &trans
+        /* RFN   */ &trans
       >;
     };
     mod {
       bindings = <
-        &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                     &trans                 &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none        &none        &bootloader                                                               &bootloader            &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &rgb_ug RGB_MEFS_CMD 5 &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &macro_ver   &none                                      &none &none                                                        &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
+        // Row 1 Left
+        /* EQUAL */ &none
+        /* 1     */ &bt BT_SEL 0
+        /* 2     */ &bt BT_SEL 1
+        /* 3     */ &bt BT_SEL 2
+        /* 4     */ &bt BT_SEL 3
+        /* 5     */ &bt BT_SEL 4
+        /* KPAD  */ &none
+        // Row 1 Right
+        /* MOD   */ &trans
+        /* 6     */ &none
+        /* 7     */ &none
+        /* 8     */ &none
+        /* 9     */ &none
+        /* 0     */ &none
+        /* MINUS */ &none
+        // Row 2 Left
+        /* TAB   */ &none
+        /* Q     */ &none
+        /* W     */ &none
+        /* E     */ &none
+        /* R     */ &none
+        /* T     */ &none
+        /* M1    */ &bootloader
+        // Row 2 Right
+        /* M3    */ &bootloader
+        /* Y     */ &none
+        /* U     */ &none
+        /* I     */ &none
+        /* O     */ &none
+        /* P     */ &none
+        /* BSLSH */ &none
+        // Row 3 Left
+        /* ESC   */ &none
+        /* A     */ &none
+        /* S     */ &none
+        /* D     */ &none
+        /* F     */ &none
+        /* G     */ &none
+        /* M2    */ &none
+        // Row 3 Center
+        /* LCTRL */ &none
+        /* LALT  */ &none
+        /* LWIN  */ &bt BT_CLR
+        /* RCTRL */ &none
+        // Row 3 Right
+        /* M4    */ &rgb_ug RGB_MEFS_CMD 5
+        /* H     */ &none
+        /* J     */ &none
+        /* K     */ &none
+        /* L     */ &none
+        /* SEMIC */ &none
+        /* SQUOT */ &none
+        // Row 4 Left
+        /* LSHFT */ &none
+        /* Z     */ &none
+        /* X     */ &none
+        /* C     */ &none
+        /* V     */ &macro_ver
+        /* B     */ &none
+        // Row 4 Center
+        /* HOME  */ &none
+        /* PGUP  */ &none
+        // Row 4 Right
+        /* N     */ &none
+        /* M     */ &none
+        /* COMMA */ &none
+        /* DOT   */ &none
+        /* FSLSH */ &none
+        /* RSHFT */ &none
+        // Row 5 Left
+        /* LFN   */ &none
+        /* BQUOT */ &none
+        /* CAPS  */ &none
+        /* LEFT  */ &none
+        /* RIGHT */ &none
+        // Row 5 Center
+        /* BKSP  */ &none
+        /* DEL   */ &none
+        /* END   */ &none
+        /* PGDN  */ &none
+        /* ENTER */ &bl BL_TOG
+        /* SPACE */ &rgb_ug RGB_TOG
+        // Row 5 Right
+        /* UP    */ &bl BL_INC
+        /* DOWN  */ &bl BL_DEC
+        /* LBRCE */ &none
+        /* RBRCE */ &none
+        /* RFN   */ &none
       >;
     };
     default_kinesis {
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &kp INS                                                        &kp INS &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &to 0           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        // Row 1 Left
+        /* EQUAL */ &kp EQUAL
+        /* 1     */ &kp N1
+        /* 2     */ &kp N2
+        /* 3     */ &kp N3
+        /* 4     */ &kp N4
+        /* 5     */ &kp N5
+        /* KPAD  */ &tog 1
+        // Row 1 Right
+        /* MOD   */ &mo 3
+        /* 6     */ &kp N6
+        /* 7     */ &kp N7
+        /* 8     */ &kp N8
+        /* 9     */ &kp N9
+        /* 0     */ &kp N0
+        /* MINUS */ &kp MINUS
+        // Row 2 Left
+        /* TAB   */ &kp TAB
+        /* Q     */ &kp Q
+        /* W     */ &kp W
+        /* E     */ &kp E
+        /* R     */ &kp R
+        /* T     */ &kp T
+        /* M1    */ &none
+        // Row 2 Right
+        /* M3    */ &none
+        /* Y     */ &kp Y
+        /* U     */ &kp U
+        /* I     */ &kp I
+        /* O     */ &kp O
+        /* P     */ &kp P
+        /* BSLSH */ &kp BSLH
+        // Row 3 Left
+        /* ESC   */ &kp ESC
+        /* A     */ &kp A
+        /* S     */ &kp S
+        /* D     */ &kp D
+        /* F     */ &kp F
+        /* G     */ &kp G
+        /* M2    */ &none
+        // Row 3 Center
+        /* LCTRL */ &kp LCTRL
+        /* LALT  */ &kp LALT
+        /* LWIN  */ &kp LGUI
+        /* RCTRL */ &kp RCTRL
+        // Row 3 Right
+        /* M4    */ &none
+        /* H     */ &kp H
+        /* J     */ &kp J
+        /* K     */ &kp K
+        /* L     */ &kp L
+        /* SEMIC */ &kp SEMI
+        /* SQUOT */ &kp SQT
+        // Row 4 Left
+        /* LSHFT */ &kp LSHFT
+        /* Z     */ &kp Z
+        /* X     */ &kp X
+        /* C     */ &kp C
+        /* V     */ &kp V
+        /* B     */ &kp B
+        // Row 4 Center
+        /* HOME  */ &kp HOME
+        /* PGUP  */ &kp PG_UP
+        // Row 4 Right
+        /* N     */ &kp N
+        /* M     */ &kp M
+        /* COMMA */ &kp COMMA
+        /* DOT   */ &kp DOT
+        /* FSLSH */ &kp FSLH
+        /* RSHFT */ &kp RSHFT
+        // Row 5 Left
+        /* LFN   */ &mo 2
+        /* BQUOT */ &kp GRAVE
+        /* CAPS  */ &kp CAPS
+        /* LEFT  */ &kp LEFT
+        /* RIGHT */ &kp RIGHT
+        // Row 5 Center
+        /* BKSP  */ &kp BSPC
+        /* DEL   */ &kp DEL
+        /* END   */ &kp END
+        /* PGDN  */ &kp PG_DN
+        /* ENTER */ &kp ENTER
+        /* SPACE */ &kp SPACE
+        // Row 5 Right
+        /* UP    */ &kp UP
+        /* DOWN  */ &kp DOWN
+        /* LBRCE */ &kp LBKT
+        /* RBRCE */ &kp RBKT
+        /* RFN   */ &mo 2
       >;
     };
   };
