@@ -127,6 +127,25 @@
     macros {
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        Cut_Chord {
+            bindings = <&kp LC(X)>;
+            key-positions = <30 48>;
+        };
+
+        Copy_Chord {
+            bindings = <&kp LC(C)>;
+            key-positions = <31 31 49>;
+        };
+
+        Paste_Chord {
+            bindings = <&kp LC(V)>;
+            key-positions = <50 32>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
