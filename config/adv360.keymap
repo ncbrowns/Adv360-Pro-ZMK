@@ -119,7 +119,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "Shift, Caps Word, Caps Lock";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <250>;
             bindings = <&sk LSHIFT>, <&caps_word>, <&kp CAPSLOCK>;
         };
     };
