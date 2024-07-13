@@ -17,6 +17,62 @@
             bindings = <&kp RET>;
         };
 
+        select_word_left: select_word_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT) &kp LC(RIGHT) &kp LC(LS(LEFT))>;
+            label = "SELECT_WORD_LEFT";
+        };
+
+        select_word_right: select_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+            label = "SELECT_WORD_RIGHT";
+        };
+
+        extend_word_left: extend_word_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(LEFT))>;
+            label = "EXTEND_WORD_LEFT";
+        };
+
+        extend_word_right: extend_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(RIGHT))>;
+            label = "EXTEND_WORD_RIGHT";
+        };
+
+        select_line_left: select_line_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp END &kp LS(HOME)>;
+            label = "SELECT_LINE_LEFT";
+        };
+
+        select_line_right: select_line_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+            label = "SELECT_LINE_RIGHT";
+        };
+
+        extend_line_left: extend_line_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(UP) &kp LS(HOME)>;
+            label = "EXTEND_LINE_LEFT";
+        };
+
+        extend_line_right: extend_line_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOWN) &kp LS(END)>;
+            label = "EXTEND_LINE_RIGHT";
+        };
+
         #endif
 
         hmprm: hmprm {
@@ -122,6 +178,42 @@
             tapping-term-ms = <250>;
             bindings = <&sk LSHIFT>, <&caps_word>, <&kp CAPSLOCK>;
         };
+
+        select_word: select_word {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SELECT_WORD";
+            bindings = <&select_word_right>, <&select_word_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        extend_word: extend_word {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EXTEND_WORD";
+            bindings = <&extend_word_right>, <&extend_word_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        select_line: select_line {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SELECT_LINE";
+            bindings = <&select_line_right>, <&select_line_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        extend_line: extend_line {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EXTEND_LINE";
+            bindings = <&extend_line_right>, <&extend_line_left>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -151,31 +243,31 @@
 
         Default {
             bindings = <
-&kp EQUAL   &kp N1          &kp N2          &kp N3           &kp N4          &kp N5  &layerkpfn                                                   &mo 3      &kp N6  &kp N7          &kp N8           &kp N9          &kp N0                  &kp MINUS
-&kp TAB     &kp Q           &kp W           &kp E            &kp R           &kp T   &layernav                                                    &layernav  &kp Y   &kp U           &kp I            &kp O           &kp P                   &kp BSLH
-&kp ESC     &hrprml LGUI A  &hrprml LALT S  &hrprml LCTRL D  &hril LSHIFT F  &kp G   &none       &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL    &kp INS    &kp H   &hrir RSHIFT J  &hrprmr RCTRL K  &hrprmr RALT L  &hrprmr RGUI SEMICOLON  &kp SQT
-&shiftcaps  &kp Z           &kp X           &kp C            &kp V           &kp B                          &kp HOME      &kp PG_UP                          &kp N   &kp M           &kp COMMA        &kp DOT         &kp FSLH                &shiftcaps
-&layerkpfn  &kp GRAVE       &kp CAPS        &kp LEFT         &kp RIGHT               &kp BSPC    &kp DEL    &kp END       &kp PG_DN  &lt 2 ENTER  &kp SPACE          &kp UP          &kp DOWN         &kp LBKT        &kp RBKT                &layerkpfn
+&kp EQUAL   &kp N1          &kp N2          &kp N3           &kp N4          &kp N5  &layerkpfn                                                   &mo 3       &kp N6  &kp N7          &kp N8           &kp N9          &kp N0                  &kp MINUS
+&kp TAB     &kp Q           &kp W           &kp E            &kp R           &kp T   &none                                                        &kp SYSREQ  &kp Y   &kp U           &kp I            &kp O           &kp P                   &kp BSLH
+&kp ESC     &hrprml LGUI A  &hrprml LALT S  &hrprml LCTRL D  &hril LSHIFT F  &kp G   &none       &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL    &kp INS     &kp H   &hrir RSHIFT J  &hrprmr RCTRL K  &hrprmr RALT L  &hrprmr RGUI SEMICOLON  &kp SQT
+&shiftcaps  &kp Z           &kp X           &kp C            &kp V           &kp B                          &kp HOME      &kp PG_UP                           &kp N   &kp M           &kp COMMA        &kp DOT         &kp FSLH                &shiftcaps
+&layerkpfn  &kp GRAVE       &kp CAPS        &kp LEFT         &kp RIGHT               &kp BSPC    &kp DEL    &kp END       &kp PG_DN  &lt 2 ENTER  &kp SPACE           &kp UP          &kp DOWN         &kp LBKT        &kp RBKT                &layerkpfn
             >;
         };
 
         Navigation {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans     &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &to 0                                       &to 0   &kp PG_UP  &kp HOME  &kp UP    &kp END    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans     &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans             &trans    &trans    &trans     &trans  &trans
+&trans  &trans     &trans     &trans      &trans     &trans  &trans                                      &trans  &trans     &trans        &trans        &trans        &trans        &trans
+&trans  &kp LC(Y)  &kp LC(T)  &kp LS(F3)  &kp LC(F)  &kp F3  &trans                                      &trans  &kp PG_UP  &kp HOME      &kp UP        &kp END       &trans        &trans
+&trans  &trans     &trans     &trans      &trans     &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp PG_DN  &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
+&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)  &to 0                   &trans      &trans                  &to 0      &select_word  &extend_word  &select_line  &extend_line  &trans
+&trans  &trans     &trans     &trans      &trans             &trans  &trans  &trans      &trans  &trans  &trans             &trans        &trans        &trans        &trans        &trans
             >;
         };
 
         Function_Keypad {
             bindings = <
-&trans  &trans             &kp F10  &kp F11  &kp F12  &trans            &trans                                      &trans  &trans           &trans     &trans     &trans     &trans  &trans
-&trans  &kp C_VOL_UP       &kp F7   &kp F8   &kp F9   &kp C_NEXT        &to 0                                       &to 0   &trans           &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans  &trans
-&trans  &kp C_MUTE         &kp F4   &kp F5   &kp F6   &kp C_PLAY_PAUSE  &trans  &trans  &trans      &trans  &trans  &trans  &trans           &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans  &trans
-&trans  &kp C_VOLUME_DOWN  &kp F1   &kp F2   &kp F3   &kp C_PREV                        &trans      &trans                  &kp KP_NUMBER_0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &trans  &trans
-&trans  &trans             &trans   &trans   &trans                     &trans  &trans  &trans      &trans  &trans  &trans                   &trans     &trans     &trans     &trans  &trans
+&trans  &trans             &kp F10  &kp F11  &kp F12  &trans            &trans                                               &trans  &trans           &trans     &trans     &trans     &trans  &trans
+&trans  &kp C_VOL_UP       &kp F7   &kp F8   &kp F9   &kp C_NEXT        &kp PRINTSCREEN                                      &trans  &trans           &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans  &trans
+&trans  &kp C_MUTE         &kp F4   &kp F5   &kp F6   &kp C_PLAY_PAUSE  &trans           &trans  &trans      &trans  &trans  &trans  &trans           &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans  &trans
+&trans  &kp C_VOLUME_DOWN  &kp F1   &kp F2   &kp F3   &kp C_PREV                                 &trans      &trans                  &kp KP_NUMBER_0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &trans  &trans
+&trans  &trans             &trans   &trans   &trans                     &trans           &trans  &trans      &trans  &trans  &trans                   &kp KP_N0  &trans     &trans     &trans  &trans
             >;
         };
 
