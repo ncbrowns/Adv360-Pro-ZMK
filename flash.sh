@@ -5,7 +5,7 @@ if [[ $# -ne 1 ]] ; then
 fi
 side=$1
 sudo mount -t drvfs D: /mnt/d
-if ! ls -1 /mnt/d | egrep -i "^current.uf2$" ; then
+if ! ls -1 /mnt/d | egrep -i "^current.uf2$" >/dev/null ; then
   echo "Couldn't find 'current.uf2' for $side side."
   exit 1
 fi
