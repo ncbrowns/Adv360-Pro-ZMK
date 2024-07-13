@@ -7,9 +7,7 @@
 / {
     behaviors {
         #include "macros.dtsi"
-      #include "version.dtsi"
-      #ifndef VERSION_MACRO
-
+        #include "version.dtsi"
         select_word_left: select_word_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -65,8 +63,6 @@
             bindings = <&kp LS(DOWN) &kp LS(END)>;
             label = "EXTEND_LINE_RIGHT";
         };
-
-        #endif
 
         hmprm: hmprm {
             compatible = "zmk,behavior-hold-tap";
