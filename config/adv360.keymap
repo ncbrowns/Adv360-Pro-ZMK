@@ -66,16 +66,16 @@
         };
 
         caps_word_exit: caps_lock_exit {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&tog 6 &trans>;
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&tog 5 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "CAPS_LOCK_EXIT";
         };
 
         caps_word_enter: caps_word_enter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 6 &caps_word>;
+            bindings = <&tog 5 &caps_word>;
             label = "CAPS_WORD_ENTER";
         };
 
@@ -200,7 +200,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYERKPFN";
             #binding-cells = <0>;
-            bindings = <&sl 4>, <&tog 4>;
+            bindings = <&sl 0>, <&tog 0>;
         };
 
         shiftcaps: shiftcaps {
@@ -313,6 +313,16 @@
             bindings = <&kp LC(V)>;
             key-positions = <50 32>;
         };
+
+        nav_left {
+            bindings = <&tog 3>;
+            key-positions = <33 32>;
+        };
+
+        nav_right {
+            bindings = <&tog 3>;
+            key-positions = <40 41>;
+        };
     };
 
     keymap {
@@ -320,11 +330,11 @@
 
         Default {
             bindings = <
-&kp EQUAL   &kp N1          &kp N2          &kp N3           &kp N4          &kp N5  &layerkpfn                                                      &mo 5       &kp N6  &kp N7          &kp N8           &kp N9          &kp N0                  &kp MINUS
+&kp EQUAL   &kp N1          &kp N2          &kp N3           &kp N4          &kp N5  &none                                                           &mo 4       &kp N6  &kp N7          &kp N8           &kp N9          &kp N0                  &kp MINUS
 &kp TAB     &kp Q           &kp W           &kp E            &hrill 2 R      &kp T   &none                                                           &kp SYSREQ  &kp Y   &hrilr 1 U      &kp I            &kp O           &kp P                   &kp BSLH
 &kp ESC     &hrprml LGUI A  &hrprml LALT S  &hrprml LCTRL D  &hril LSHIFT F  &kp G   &kp PRINTSCREEN  &to 3    &kp LALT      &kp LGUI   &to 3        &kp INS     &kp H   &hrir RSHIFT J  &hrprmr RCTRL K  &hrprmr RALT L  &hrprmr RGUI SEMICOLON  &kp SQT
 &shiftcaps  &kp Z           &kp X           &kp C            &kp V           &kp B                             &kp HOME      &kp PG_UP                           &kp N   &hrilsr 0 M     &kp COMMA        &kp DOT         &kp FSLH                &shiftcaps
-&mo 2       &kp GRAVE       &kp CAPS        &kp LEFT         &kp RIGHT               &kp BSPC         &kp DEL  &kp END       &kp PG_DN  &lt 4 ENTER  &kp SPACE           &kp UP          &kp DOWN         &kp LBKT        &kp RBKT                &mo 1
+&mo 2       &kp GRAVE       &kp CAPS        &kp LEFT         &kp RIGHT               &kp BSPC         &kp DEL  &kp END       &kp PG_DN  &lt 0 ENTER  &kp SPACE           &kp UP          &kp DOWN         &kp LBKT        &kp RBKT                &mo 1
             >;
         };
 
@@ -358,16 +368,6 @@
             >;
         };
 
-        Function_Keypad {
-            bindings = <
-&trans  &trans             &kp F10  &kp F11  &kp F12  &trans            &trans                                      &trans  &trans           &trans     &trans     &trans     &trans  &trans
-&trans  &kp C_VOL_UP       &kp F7   &kp F8   &kp F9   &kp C_NEXT        &trans                                      &trans  &trans           &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans  &trans
-&trans  &kp C_MUTE         &kp F4   &kp F5   &kp F6   &kp C_PLAY_PAUSE  &trans  &trans  &trans      &trans  &trans  &trans  &trans           &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans  &trans
-&trans  &kp C_VOLUME_DOWN  &kp F1   &kp F2   &kp F3   &kp C_PREV                        &trans      &trans                  &kp KP_NUMBER_0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &trans  &trans
-&trans  &trans             &trans   &trans   &trans                     &trans  &trans  &trans      &trans  &trans  &trans                   &kp KP_N0  &trans     &trans     &trans  &trans
-            >;
-        };
-
         mod {
             bindings = <
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans                  &none  &none       &none       &none  &none  &none
@@ -380,11 +380,11 @@
 
         caps_word {
             bindings = <
-&caps_word_exit  &trans           &trans           &trans           &trans           &trans  &trans                                                                          &trans           &trans  &trans           &trans           &trans           &trans           &kp UNDERSCORE
-&caps_word_exit  &trans           &trans           &trans           &trans           &trans  &trans                                                                          &trans           &trans  &trans           &trans           &trans           &trans           &caps_word_exit
-&caps_word_exit  &trans           &trans           &trans           &trans           &trans  &trans  &caps_word_exit  &caps_word_exit      &trans           &caps_word_exit  &trans           &trans  &trans           &trans           &trans           &caps_word_exit  &caps_word_exit
-&caps_word_exit  &trans           &trans           &trans           &trans           &trans                           &caps_word_exit      &caps_word_exit                                    &trans  &trans           &caps_word_exit  &caps_word_exit  &caps_word_exit  &caps_word_exit
-&caps_word_exit  &caps_word_exit  &caps_word_exit  &caps_word_exit  &caps_word_exit          &trans  &caps_word_exit  &caps_word_exit      &caps_word_exit  &caps_word_exit  &caps_word_exit          &caps_word_exit  &caps_word_exit  &caps_word_exit  &caps_word_exit  &caps_word_exit
+&caps_word_exit EQUAL  &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &kp UNDERSCORE
+&caps_word_exit TAB    &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &caps_word_exit BACKSLASH
+&caps_word_exit ESC    &trans                 &trans                &trans                &trans                 &trans  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &trans  &trans              &trans                 &trans                        &caps_word_exit SEMICOLON      &caps_word_exit SQT
+&trans                 &trans                 &trans                &trans                &trans                 &trans                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &trans  &trans              &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &trans
+&trans                 &caps_word_exit GRAVE  &caps_word_exit CAPS  &caps_word_exit LEFT  &caps_word_exit RIGHT          &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE          &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
             >;
         };
     };
