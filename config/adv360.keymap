@@ -315,7 +315,7 @@
         };
 
         nav_layer_left_hand {
-            bindings = <&none>;
+            bindings = <&tog 3>;
             key-positions = <32 33>;
         };
     };
