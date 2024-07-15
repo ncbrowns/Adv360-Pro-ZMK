@@ -313,6 +313,11 @@
             bindings = <&tog 3>;
             key-positions = <32 41>;
         };
+
+        nav_layer_left_hand {
+            bindings = <&none>;
+            key-positions = <32 33>;
+        };
     };
 
     keymap {
