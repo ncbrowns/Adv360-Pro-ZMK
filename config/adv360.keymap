@@ -97,9 +97,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&mo 1>,
                 <&macro_press>,
-                <&kp LSHFT>,
+                <&kp LSHFT &mo 1>,
                 <&macro_pause_for_release>,
                 <&macro_release>,
                 <&kp LSHFT &mo 1>;
