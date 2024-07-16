@@ -207,7 +207,7 @@
             label = "Shift, Caps Word, Caps Lock";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&sk LSHIFT>, <&caps_word_enter>, <&kp CAPS>;
+            bindings = <&sk LSHIFT>, <&caps_word>, <&kp CAPS>;
         };
 
         select_word: select_word {
