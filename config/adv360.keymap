@@ -382,5 +382,15 @@
 &trans                 &caps_word_exit GRAVE  &caps_word_exit CAPS  &caps_word_exit LEFT  &caps_word_exit RIGHT          &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE          &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
             >;
         };
+
+        Navigation_Left {
+            bindings = <
+&trans  &trans     &trans     &trans     &trans     &trans     &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &kp HOME   &kp UP     &kp END    &kp PG_UP  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans                     &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &trans     &trans     &trans                &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
     };
 };
