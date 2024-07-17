@@ -109,33 +109,7 @@
             label = "SHIFT_LEFT_SYMBOL";
         };
 
-        hmprm: hmprm {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Pinky Ring Middy";
-            #binding-cells = <2>;
-            tapping-term-ms = <270>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <250>;
-        };
-
-        hri: hri {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Index";
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <150>;
-        };
-
-        hrprml: hrprml {
+        home_row_left: hrprml {
             compatible = "zmk,behavior-hold-tap";
             label = "Home Row Pinky Ring Middy Left";
             #binding-cells = <2>;
@@ -149,9 +123,9 @@
             hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 70 71 72 73 74 75 37 38 53 68 69 70 35 36 65 66 67 52>;
         };
 
-        hril: hril {
+        home_row_left_index: home_row_left_index {
             compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Index Left";
+            label = "HOME_ROW_LEFT_INDEX";
             #binding-cells = <2>;
             tapping-term-ms = <170>;
             flavor = "tap-preferred";
@@ -163,9 +137,9 @@
             hold-trigger-key-positions = <37 38 53 68 69 70 7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 69 70 71 72 73 74 75 36 52 65 66 67 35>;
         };
 
-        hrprmr: hrprmr {
+        home_row_right: home_row_right {
             compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Pinky Ring Middy Right";
+            label = "HOME_ROW_RIGHT";
             #binding-cells = <2>;
             tapping-term-ms = <270>;
             flavor = "tap-preferred";
@@ -177,7 +151,7 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 37 46 47 48 49 50 51 52 53 60 61 62 63 64 65 66 67 38 69 70 68>;
         };
 
-        hrir: hrir {
+        home_row_right_index: hrir {
             compatible = "zmk,behavior-hold-tap";
             label = "Home Row Index Right";
             #binding-cells = <2>;
@@ -205,16 +179,12 @@
             bindings = <&sl 0>, <&tog 0>;
         };
 
-        shiftcaps: shiftcaps {
+        shift_caps: shift_caps {
             compatible = "zmk,behavior-tap-dance";
-            label = "Shift, Caps Word, Caps Lock";
+            label = "SHIFT_CAPS";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings =
-                <&sk LSHIFT>,
-                <&caps_word>,
-                <&caps_word_enter>,
-                <&kp CAPS>;
+            bindings = <&sk LSHIFT>, <&caps_word_enter>, <&kp CAPS>;
         };
 
         select_word: select_word {
@@ -253,9 +223,9 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        hrill: hrill {
+        home_row_left_layer: home_row_left_layer {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRILL";
+            label = "HOME_ROW_LEFT_LAYER";
             #binding-cells = <2>;
             tapping-term-ms = <270>;
             flavor = "tap-preferred";
@@ -267,9 +237,9 @@
             hold-trigger-key-positions = <37 38 53 68 69 70 7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 69 70 71 72 73 74 75 36 52 65 66 67 35>;
         };
 
-        hrilr: hrilr {
+        home_row_right_layer: home_row_right_layer {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRILR";
+            label = "HOME_ROW_RIGHT_LAYER";
             #binding-cells = <2>;
             tapping-term-ms = <270>;
             flavor = "tap-preferred";
@@ -281,9 +251,9 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67 37 38 53 68 69 70>;
         };
 
-        hrilsr: hrilsr {
+        home_row_right_shift_layer: home_row_right_shift_layer {
             compatible = "zmk,behavior-hold-tap";
-            label = "HRILSR";
+            label = "HOME_ROW_RIGHT_SHIFT_LAYER";
             #binding-cells = <2>;
             tapping-term-ms = <270>;
             flavor = "tap-preferred";
@@ -332,11 +302,11 @@
 
         Default {
             bindings = <
-&kp EQUAL   &kp N1          &kp N2          &kp N3           &kp N4          &kp N5  &none                                                           &mo 4       &kp N6  &kp N7          &kp N8           &kp N9          &kp N0                  &kp MINUS
-&kp TAB     &kp Q           &kp W           &kp E            &hrill 2 R      &kp T   &none                                                           &kp SYSREQ  &kp Y   &hrilr 1 U      &kp I            &kp O           &kp P                   &kp BSLH
-&kp ESC     &hrprml LGUI A  &hrprml LALT S  &hrprml LCTRL D  &hril LSHIFT F  &kp G   &kp PRINTSCREEN  &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &kp INS     &kp H   &hrir RSHIFT J  &hrprmr RCTRL K  &hrprmr RALT L  &hrprmr RGUI SEMICOLON  &kp SQT
-&shiftcaps  &kp Z           &kp X           &kp C            &kp V           &kp B                               &kp HOME      &kp PG_UP                         &kp N   &hrilsr 0 M     &kp COMMA        &kp DOT         &kp FSLH                &shiftcaps
-&mo 2       &kp GRAVE       &kp CAPS        &kp LEFT         &kp RIGHT               &kp BSPC         &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE           &kp UP          &kp DOWN         &kp LBKT        &kp RBKT                &mo 1
+&kp EQUAL    &kp N1                 &kp N2                 &kp N3                  &kp N4                         &kp N5  &none                                                           &mo 4       &kp N6  &kp N7                           &kp N8                   &kp N9                  &kp N0                          &kp MINUS
+&kp TAB      &kp Q                  &kp W                  &kp E                   &home_row_left_layer 2 R       &kp T   &none                                                           &kp SYSREQ  &kp Y   &home_row_right_layer 1 U        &kp I                    &kp O                   &kp P                           &kp BSLH
+&kp ESC      &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHIFT F  &kp G   &kp PRINTSCREEN  &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &kp INS     &kp H   &home_row_right_index RSHIFT J   &home_row_right RCTRL K  &home_row_right RALT L  &home_row_right RGUI SEMICOLON  &kp SQT
+&shift_caps  &kp Z                  &kp X                  &kp C                   &kp V                          &kp B                               &kp HOME      &kp PG_UP                         &kp N   &home_row_right_shift_layer 0 M  &kp COMMA                &kp DOT                 &kp FSLH                        &shift_caps
+&mo 2        &kp GRAVE              &kp CAPS               &kp LEFT                &kp RIGHT                              &kp BSPC         &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE           &kp UP                           &kp DOWN                 &kp LBKT                &kp RBKT                        &mo 1
             >;
         };
 
