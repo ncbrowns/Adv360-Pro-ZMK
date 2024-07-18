@@ -109,6 +109,14 @@
             label = "SHIFT_LEFT_SYMBOL";
         };
 
+        caps_word_lower: caps_word_lower {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(F22)>, <&macro_pause_for_release>, <&caps_word>;
+
+            label = "CAPS_WORD_LOWER";
+        };
+
         home_row_left: hrprml {
             compatible = "zmk,behavior-hold-tap";
             label = "Home Row Pinky Ring Middy Left";
@@ -263,6 +271,13 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67 37 38 53 68 69 70>;
             bindings = <&shift_left_symbol>, <&kp>;
         };
+
+        shift_caps_while_caps_word: shift_caps_while_caps_word {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SHIFT_CAPS_WHILE_CAPS_WORD";
+            #binding-cells = <0>;
+            bindings = <&caps_word_lower>, <&caps_word_exit F22>;
+        };
     };
 
     macros {
@@ -352,11 +367,11 @@
 
         caps_word {
             bindings = <
-&caps_word_exit EQUAL  &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &kp UNDERSCORE
-&caps_word_exit TAB    &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &caps_word_exit BACKSLASH
-&caps_word_exit ESC    &trans                 &trans                &trans                &trans                 &trans  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &trans  &trans              &trans                 &trans                        &caps_word_exit SEMICOLON      &caps_word_exit SQT
-&trans                 &trans                 &trans                &trans                &trans                 &trans                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &trans  &trans              &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &trans
-&trans                 &caps_word_exit GRAVE  &caps_word_exit CAPS  &caps_word_exit LEFT  &caps_word_exit RIGHT          &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE          &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
+&caps_word_exit EQUAL        &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &kp UNDERSCORE
+&caps_word_exit TAB          &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &caps_word_exit BACKSLASH
+&caps_word_exit ESC          &trans                 &trans                &trans                &trans                 &trans  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &trans  &trans              &trans                 &trans                        &caps_word_exit SEMICOLON      &caps_word_exit SQT
+&shift_caps_while_caps_word  &trans                 &trans                &trans                &trans                 &trans                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &trans  &trans              &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &shift_caps_while_caps_word
+&trans                       &caps_word_exit GRAVE  &caps_word_exit CAPS  &caps_word_exit LEFT  &caps_word_exit RIGHT          &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE          &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
             >;
         };
 
