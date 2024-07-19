@@ -278,6 +278,15 @@
             #binding-cells = <0>;
             bindings = <&caps_word_lower>, <&caps_word_exit F22>;
         };
+
+        caps_word_dash_underscore: caps_word_dash_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            label = "CAPS_WORD_DASH_UNDERSCORE";
+            bindings = <&kp UNDERSCORE>, <&kp MINUS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -367,7 +376,7 @@
 
         caps_word {
             bindings = <
-&caps_word_exit EQUAL        &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &kp UNDERSCORE
+&caps_word_exit EQUAL        &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &caps_word_dash_underscore
 &caps_word_exit TAB          &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &caps_word_exit BACKSLASH
 &caps_word_exit ESC          &trans                 &trans                &trans                &trans                 &trans  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &trans  &trans              &trans                 &trans                        &caps_word_exit SEMICOLON      &caps_word_exit SQT
 &shift_caps_while_caps_word  &trans                 &trans                &trans                &trans                 &trans                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &trans  &trans              &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &shift_caps_while_caps_word
