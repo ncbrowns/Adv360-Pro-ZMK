@@ -219,11 +219,11 @@
 
         Lower {
             bindings = <
-&trans  &kp F1     &kp F2         &kp F3     &kp F4     &kp F5  &trans                                               &trans           &kp F6     &kp F7    &kp F8    &kp F9     &kp F10      &kp F11
-&trans  &kp GRAVE  &triple_quote  &kp TILDE  &trans     &trans  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp PG_UP  &kp HOME  &kp UP    &kp END    &thanks_pat  &kp F12
-&trans  &sk LGUI   &sk LALT       &sk LCTRL  &sk LSHFT  &trans  &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans       &trans
-&trans  &kp LC(Z)  &kp LC(X)      &kp LC(C)  &kp LC(V)  &trans                           &trans      &trans                           &trans     &trans    &trans    &trans     &trans       &trans
-&trans  &trans     &trans         &trans     &trans             &trans           &trans  &trans      &trans  &trans  &trans                      &trans    &trans    &trans     &trans       &trans
+&trans  &kp F1      &kp F2         &kp F3     &kp F4     &kp F5  &trans                                               &trans           &kp F6     &kp F7    &kp F8    &kp F9        &kp F10       &kp F11
+&trans  &kp GRAVE   &triple_quote  &kp TILDE  &trans     &trans  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp PG_UP  &kp HOME  &kp UP    &kp END       &thanks_pat   &kp F12
+&trans  &sk LGUI    &sk LALT       &sk LCTRL  &sk LSHFT  &trans  &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT     &trans        &trans
+&trans  &kp LC(Z)   &kp LC(X)      &kp LC(C)  &kp LC(V)  &trans                           &trans      &trans                           &trans     &trans    &trans    &trans        &trans        &trans
+&trans  &kp C_PREV  &kp C_NEXT     &trans     &trans             &trans           &trans  &trans      &trans  &trans  &trans                      &trans    &trans    &kp C_VOL_DN  &kp C_VOL_UP  &trans
             >;
         };
 
