@@ -68,14 +68,14 @@
         caps_word_exit: caps_lock_exit {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&tog 5 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&tog 3 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "CAPS_LOCK_EXIT";
         };
 
         caps_word_enter: caps_word_enter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&caps_word &tog 5>;
+            bindings = <&caps_word &tog 3>;
             label = "CAPS_WORD_ENTER";
         };
 
@@ -96,19 +96,6 @@
             label = "THANKS_PAT";
         };
 
-        shift_left_symbol: shift_left_symbol {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT &mo 1>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&kp LSHFT &mo 1>;
-
-            label = "SHIFT_LEFT_SYMBOL";
-        };
-
         caps_word_lower: caps_word_lower {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -117,74 +104,11 @@
             label = "CAPS_WORD_LOWER";
         };
 
-        home_row_left: hrprml {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Pinky Ring Middy Left";
-            #binding-cells = <2>;
-            tapping-term-ms = <270>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 70 71 72 73 74 75 37 38 53 68 69 70 35 36 65 66 67 52>;
-        };
-
-        home_row_left_index: home_row_left_index {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_LEFT_INDEX";
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <100>;
-            hold-trigger-key-positions = <37 38 53 68 69 70 7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 69 70 71 72 73 74 75 36 52 65 66 67 35>;
-        };
-
-        home_row_right: home_row_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_RIGHT";
-            #binding-cells = <2>;
-            tapping-term-ms = <270>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 37 46 47 48 49 50 51 52 53 60 61 62 63 64 65 66 67 38 69 70 68>;
-        };
-
-        home_row_right_index: hrir {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Home Row Index Right";
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <100>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67 37 38 53 68 69 70>;
-        };
-
-        layernav: layernav {
+        lower: lower {
             compatible = "zmk,behavior-tap-dance";
-            label = "LAYERNAV";
+            label = "LOWER";
             #binding-cells = <0>;
-            bindings = <&sl 3>, <&tog 3>;
-        };
-
-        layerkpfn: layerkpfn {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYERKPFN";
-            #binding-cells = <0>;
-            bindings = <&sl 0>, <&tog 0>;
+            bindings = <&sl 1>, <&tog 1>;
         };
 
         shift_caps: shift_caps {
@@ -231,47 +155,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        home_row_left_layer: home_row_left_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_LEFT_LAYER";
-            #binding-cells = <2>;
-            tapping-term-ms = <270>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <100>;
-            hold-trigger-key-positions = <37 38 53 68 69 70 7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 69 70 71 72 73 74 75 36 52 65 66 67 35>;
-        };
-
-        home_row_right_layer: home_row_right_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_RIGHT_LAYER";
-            #binding-cells = <2>;
-            tapping-term-ms = <270>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <100>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67 37 38 53 68 69 70>;
-        };
-
-        home_row_right_shift_layer: home_row_right_shift_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_ROW_RIGHT_SHIFT_LAYER";
-            #binding-cells = <2>;
-            tapping-term-ms = <270>;
-            flavor = "tap-preferred";
-            hold-trigger-on-release;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <100>;
-            hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67 37 38 53 68 69 70>;
-            bindings = <&shift_left_symbol>, <&kp>;
-        };
-
         shift_caps_while_caps_word: shift_caps_while_caps_word {
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS_WHILE_CAPS_WORD";
@@ -311,12 +194,12 @@
         };
 
         nav_layer {
-            bindings = <&tog 3>;
+            bindings = <&tog 0>;
             key-positions = <32 41>;
         };
 
         nav_layer_left_hand {
-            bindings = <&tog 3>;
+            bindings = <&tog 0>;
             key-positions = <32 33>;
         };
     };
@@ -326,41 +209,21 @@
 
         Default {
             bindings = <
-&kp EQUAL    &kp N1                 &kp N2                 &kp N3                  &kp N4                         &kp N5  &none                                                           &mo 4       &kp N6  &kp N7                           &kp N8                   &kp N9                  &kp N0                          &kp MINUS
-&kp TAB      &kp Q                  &kp W                  &kp E                   &home_row_left_layer 2 R       &kp T   &none                                                           &kp SYSREQ  &kp Y   &home_row_right_layer 1 U        &kp I                    &kp O                   &kp P                           &kp BSLH
-&kp ESC      &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHIFT F  &kp G   &kp PRINTSCREEN  &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &kp INS     &kp H   &home_row_right_index RSHIFT J   &home_row_right RCTRL K  &home_row_right RALT L  &home_row_right RGUI SEMICOLON  &kp SQT
-&shift_caps  &kp Z                  &kp X                  &kp C                   &kp V                          &kp B                               &kp HOME      &kp PG_UP                         &kp N   &home_row_right_shift_layer 0 M  &kp COMMA                &kp DOT                 &kp FSLH                        &shift_caps
-&mo 2        &kp GRAVE              &kp CAPS               &kp LEFT                &kp RIGHT                              &kp BSPC         &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE           &kp UP                           &kp DOWN                 &kp LBKT                &kp RBKT                        &mo 1
+&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                              &mo 2      &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB      &kp Q      &kp W     &kp E     &kp R      &kp T   &kp C_PLAY_PAUSE                                                   &none      &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
+&kp ESC      &kp A      &kp S     &kp D     &kp F      &kp G   &kp C_MUTE        &lower   &kp LCTRL         &kp RCTRL  &lower     &kp INS    &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&shift_caps  &kp Z      &kp X     &kp C     &kp V      &kp B                              &kp LEFT_ALT      &kp LWIN                         &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &shift_caps
+&kp LCTRL    &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp BSPC          &kp DEL  &kp HOME          &kp END    &kp ENTER  &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp RCTRL
             >;
         };
 
-        Symbol_Left {
+        Lower {
             bindings = <
-&trans        &trans         &kp F10  &kp F11  &kp F12  &trans            &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp C_VOL_UP  &kp GRAVE      &kp F7   &kp F8   &kp F9   &kp C_PREV        &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp C_MUTE    &kp TILDE      &kp F4   &kp F5   &kp F6   &kp C_PLAY_PAUSE  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&kp C_VOL_DN  &triple_quote  &kp F1   &kp F2   &kp F3   &kp C_NEXT                        &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans         &trans   &trans   &trans                     &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        Symbol_Right {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans    &trans        &trans        &trans      &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans    &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(LT)  &thanks_pat  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp PLUS  &kp LS(LPAR)  &kp LS(RPAR)  &kp EQUAL   &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans    &kp LBKT      &kp RBKT      &kp LS(GT)  &trans       &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans            &trans        &trans        &trans      &trans       &trans
-            >;
-        };
-
-        Navigation {
-            bindings = <
-&trans  &trans     &trans     &trans      &trans     &trans  &trans                                      &trans  &trans     &trans        &trans        &trans        &trans        &trans
-&trans  &kp LC(Y)  &kp LC(T)  &kp LS(F3)  &kp LC(F)  &kp F3  &trans                                      &trans  &kp PG_UP  &kp HOME      &kp UP        &kp END       &trans        &trans
-&trans  &trans     &trans     &trans      &trans     &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp PG_DN  &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
-&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V)  &to 0                   &trans      &trans                  &to 0      &select_word  &extend_word  &select_line  &extend_line  &trans
-&trans  &trans     &trans     &trans      &trans             &trans  &trans  &trans      &trans  &trans  &trans             &trans        &trans        &trans        &trans        &trans
+&trans  &kp F1     &kp F2         &kp F3     &kp F4     &kp F5  &trans                                               &trans           &kp F6     &kp F7    &kp F8    &kp F9     &kp F10      &kp F11
+&trans  &kp GRAVE  &triple_quote  &kp TILDE  &trans     &trans  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp PG_UP  &kp HOME  &kp UP    &kp END    &thanks_pat  &kp F12
+&trans  &sk LGUI   &sk LALT       &sk LCTRL  &sk LSHFT  &trans  &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans       &trans
+&trans  &kp LC(Z)  &kp LC(X)      &kp LC(C)  &kp LC(V)  &trans                           &trans      &trans                           &trans     &trans    &trans    &trans     &trans       &trans
+&trans  &trans     &trans         &trans     &trans             &trans           &trans  &trans      &trans  &trans  &trans                      &trans    &trans    &trans     &trans       &trans
             >;
         };
 
@@ -381,16 +244,6 @@
 &caps_word_exit ESC          &trans                 &trans                &trans                &trans                 &trans  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &trans  &trans              &trans                 &trans                        &caps_word_exit SEMICOLON      &caps_word_exit SQT
 &shift_caps_while_caps_word  &trans                 &trans                &trans                &trans                 &trans                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &trans  &trans              &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &shift_caps_while_caps_word
 &trans                       &caps_word_exit GRAVE  &caps_word_exit CAPS  &caps_word_exit LEFT  &caps_word_exit RIGHT          &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE          &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
-            >;
-        };
-
-        Navigation_Left {
-            bindings = <
-&trans  &trans     &trans     &trans     &trans     &trans     &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &kp HOME   &kp UP     &kp END    &kp PG_UP  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans                     &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans     &trans     &trans                &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
