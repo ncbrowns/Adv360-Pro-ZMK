@@ -122,7 +122,15 @@
         select_mode_key: select_mode_key {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &sl_long_term 5>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&sl_long_term 5>;
+
             label = "SELECT_MODE_KEY";
         };
 
@@ -208,7 +216,7 @@
         sl_long_term: sl_long_term {
             compatible = "zmk,behavior-sticky-key";
             label = "SL_LONG_TERM";
-            bindings = <&sl>;
+            bindings = <&mo>;
             #binding-cells = <1>;
             release-after-ms = <60000>;
         };
@@ -217,34 +225,7 @@
     macros {
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        Cut_Chord {
-            bindings = <&kp LC(X)>;
-            key-positions = <48 41>;
-        };
-
-        Copy_Chord {
-            bindings = <&kp LC(C)>;
-            key-positions = <49 41>;
-        };
-
-        Paste_Chord {
-            bindings = <&kp LC(V)>;
-            key-positions = <50 41>;
-        };
-
-        nav_layer {
-            bindings = <&tog 0>;
-            key-positions = <32 41>;
-        };
-
-        nav_layer_left_hand {
-            bindings = <&tog 0>;
-            key-positions = <32 33>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -291,21 +272,21 @@
 
         Tab_Switch {
             bindings = <
-&none  &none        &none    &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
-&none  &none        &none    &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
-&none  &kp LS(TAB)  &kp TAB  &none     &none      &none  &none  &none  &none         &none      &none  &none  &kp LS(TAB)  &none   &none     &kp TAB  &none  &none
-&none  &none        &none    &none     &none      &none                &kp HOME      &kp PG_UP                &none        &none   &none     &none    &none  &none
-&none  &none        &none    &kp LEFT  &kp RIGHT         &none  &none  &kp END       &kp PG_DN  &none  &none               &kp UP  &kp DOWN  &none    &none  &none
+&none  &none  &none  &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
+&none  &none  &none  &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
+&none  &none  &none  &none     &none      &none  &none  &none  &none         &none      &none  &none  &kp LS(TAB)  &none   &none     &kp TAB  &none  &none
+&none  &none  &none  &none     &none      &none                &kp HOME      &kp PG_UP                &none        &none   &none     &none    &none  &none
+&none  &none  &none  &kp LEFT  &kp RIGHT         &none  &none  &kp END       &kp PG_DN  &none  &none               &kp UP  &kp DOWN  &none    &none  &none
             >;
         };
 
         Select_Mode {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans                         &trans                          &trans                        &trans                          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &select_mode_key LS(HOME)      &select_mode_key LS(PAGE_DOWN)  &select_mode_key LS(PAGE_UP)  &select_mode_key LS(END)        &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &select_mode_key LS(LEFT)      &select_mode_key LS(DOWN)       &select_mode_key LS(UP)       &select_mode_key LS(V)          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &select_mode_key LS(LC(LEFT))  &trans                          &trans                        &select_mode_key LS(LC(RIGHT))  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans                                 &trans                          &trans                        &trans                          &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans                     &trans                      &trans                    &trans                      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &select_mode_key HOME      &select_mode_key PAGE_DOWN  &select_mode_key PAGE_UP  &select_mode_key END        &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &select_mode_key LEFT      &select_mode_key DOWN       &select_mode_key UP       &select_mode_key RIGHT      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &select_mode_key LC(LEFT)  &trans                      &trans                    &select_mode_key LC(RIGHT)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans                             &trans                      &trans                    &trans                      &trans  &trans
             >;
         };
     };
