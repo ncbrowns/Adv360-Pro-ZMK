@@ -211,7 +211,6 @@
             bindings = <&sl>;
             #binding-cells = <1>;
             release-after-ms = <60000>;
-            quick-release;
         };
     };
 
