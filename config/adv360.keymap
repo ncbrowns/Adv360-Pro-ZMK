@@ -337,7 +337,7 @@
             bindings = <&sl 2>, <&tog 2>;
         };
 
-        shift_caps: shift_caps {
+        shift_caps2: shift_caps2 {
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS";
             #binding-cells = <0>;
