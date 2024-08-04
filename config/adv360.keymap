@@ -69,7 +69,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS";
             #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&tog 4>;
+            bindings = <&kp LSHIFT>, <&tog 5>;
         };
 
         layer_sticky_tap_or_hold: layer_sticky_tap_or_hold {
@@ -85,7 +85,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SYM_NAV_LOCK";
             #binding-cells = <0>;
-            bindings = <&layer_sticky_tap_or_hold 5 3>, <&tog 5>;
+            bindings = <&layer_sticky_tap_or_hold 6 4>, <&tog 6>;
         };
 
         hold_tap_keys: hold_tap_keys {
@@ -205,7 +205,7 @@
             bindings = <&sym_or_eq SLASH SLASH>, <&double_tap SLASH>;
         };
 
-       lower: lower {
+        lower: lower {
             compatible = "zmk,behavior-tap-dance";
             label = "LOWER";
             #binding-cells = <0>;
@@ -314,14 +314,14 @@
         caps_word_exit: caps_lock_exit {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&tog 3 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&tog 4 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "CAPS_LOCK_EXIT";
         };
 
         caps_word_enter: caps_word_enter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&caps_word &tog 3>;
+            bindings = <&caps_word &tog 4>;
             label = "CAPS_WORD_ENTER";
         };
 
@@ -338,12 +338,12 @@
             #binding-cells = <1>;
             bindings =
                 <&macro_press>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 4>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 5>,
                 <&macro_tap>,
                 <&kp TAB>,
                 <&macro_pause_for_release>,
                 <&macro_release>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 4>;
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 5>;
 
             label = "TAB_SWITCH";
         };
@@ -460,9 +460,7 @@
 
             label = "SELECT_MODE_KEY";
         };
-
-     };
-
+    };
 
     combos { compatible = "zmk,combos"; };
 
@@ -471,7 +469,7 @@
 
         Base {
             bindings = <
-&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                          &mo 5      &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                          &mo 6      &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
 &kp TAB      &kp Q      &kp W     &kp E     &kp R      &kp T   &kp C_PLAY_PAUSE                                               &none      &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
 &kp ESC      &kp A      &kp S     &kp D     &kp F      &kp G   &kp C_MUTE        &lower   &kp LALT      &kp LGUI   &lower     &kp INS    &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
 &shift_caps  &kp Z      &kp X     &kp C     &kp V      &kp B                              &kp HOME      &kp PG_UP                        &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &shift_caps
@@ -499,6 +497,16 @@
             >;
         };
 
+        Symbol {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
         CapsWord {
             bindings = <
 &caps_word_exit EQUAL        &trans                 &trans                &trans                &trans                 &trans  &trans                                                                                               &trans                 &trans  &trans              &trans                 &trans                        &trans                         &caps_word_dash_underscore
@@ -509,7 +517,7 @@
             >;
         };
 
-        Tab_Switch {
+        TabSwitcher {
             bindings = <
 &none  &none  &none  &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
 &none  &none  &none  &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
