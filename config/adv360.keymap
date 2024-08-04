@@ -241,22 +241,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        shift_caps_while_caps_word: shift_caps_while_caps_word {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SHIFT_CAPS_WHILE_CAPS_WORD";
-            #binding-cells = <0>;
-            bindings = <&caps_word_lower>, <&caps_word_exit F22>;
-        };
-
-        caps_word_dash_underscore: caps_word_dash_underscore {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CAPS_WORD_DASH_UNDERSCORE";
-            bindings = <&kp UNDERSCORE>, <&kp MINUS>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_RCTL|MOD_LSFT|MOD_RSFT)>;
-        };
-
         thumb_mods: thumb_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_MODS";
