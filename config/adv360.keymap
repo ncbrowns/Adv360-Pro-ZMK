@@ -205,132 +205,7 @@
             bindings = <&sym_or_eq SLASH SLASH>, <&double_tap SLASH>;
         };
 
-        select_word_left: select_word_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LC(RIGHT) &kp LC(LS(LEFT))>;
-            label = "SELECT_WORD_LEFT";
-        };
-
-        select_word_right: select_word_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LC(LS(RIGHT))>;
-            label = "SELECT_WORD_RIGHT";
-        };
-
-        extend_word_left: extend_word_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(LEFT))>;
-            label = "EXTEND_WORD_LEFT";
-        };
-
-        extend_word_right: extend_word_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(RIGHT))>;
-            label = "EXTEND_WORD_RIGHT";
-        };
-
-        select_line_left: select_line_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp END &kp LS(HOME)>;
-            label = "SELECT_LINE_LEFT";
-        };
-
-        select_line_right: select_line_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END)>;
-            label = "SELECT_LINE_RIGHT";
-        };
-
-        extend_line_left: extend_line_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(UP) &kp LS(HOME)>;
-            label = "EXTEND_LINE_LEFT";
-        };
-
-        extend_line_right: extend_line_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(DOWN) &kp LS(END)>;
-            label = "EXTEND_LINE_RIGHT";
-        };
-
-        caps_word_exit: caps_lock_exit {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&tog 3 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "CAPS_LOCK_EXIT";
-        };
-
-        caps_word_enter: caps_word_enter {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&caps_word &tog 3>;
-            label = "CAPS_WORD_ENTER";
-        };
-
-        triple_quote: triple_quote {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
-            label = "TRIPLE_QUOTE";
-        };
-
-        thanks_pat: thanks_pat {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap_time 10>,
-                <&kp LS(T) &kp H &kp A &kp N &kp K &kp S &kp COMMA &kp LS(RET) &kp LS(P) &kp A &kp T>;
-
-            label = "THANKS_PAT";
-        };
-
-        caps_word_lower: caps_word_lower {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(F22)>, <&macro_pause_for_release>, <&caps_word>;
-
-            label = "CAPS_WORD_LOWER";
-        };
-
-        tab_switch: tab_switch {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 4>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 4>;
-
-            label = "TAB_SWITCH";
-        };
-
-        select_mode_key: select_mode_key {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&sl_long_term 0>;
-
-            label = "SELECT_MODE_KEY";
-        };
-
-        lower: lower {
+       lower: lower {
             compatible = "zmk,behavior-tap-dance";
             label = "LOWER";
             #binding-cells = <0>;
@@ -419,7 +294,175 @@
     };
 
     macros {
-    };
+        thanks_pat: thanks_pat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap_time 10>,
+                <&kp LS(T) &kp H &kp A &kp N &kp K &kp S &kp COMMA &kp LS(RET) &kp LS(P) &kp A &kp T>;
+
+            label = "THANKS_PAT";
+        };
+
+        triple_quote: triple_quote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
+            label = "TRIPLE_QUOTE";
+        };
+
+        caps_word_exit: caps_lock_exit {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&tog 3 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "CAPS_LOCK_EXIT";
+        };
+
+        caps_word_enter: caps_word_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&caps_word &tog 3>;
+            label = "CAPS_WORD_ENTER";
+        };
+
+        caps_word_lower: caps_word_lower {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(F22)>, <&macro_pause_for_release>, <&caps_word>;
+
+            label = "CAPS_WORD_LOWER";
+        };
+
+        tab_switch: tab_switch {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 4>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 4>;
+
+            label = "TAB_SWITCH";
+        };
+
+        curly_pair: curly_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp RBRC &kp LEFT>;
+            label = "CURLY_PAIR";
+        };
+
+        paren_pair: paren_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR &kp RPAR &kp LEFT>;
+            label = "PAREN_PAIR";
+        };
+
+        bracket_pair: bracket_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+            label = "BRACKET_PAIR";
+        };
+
+        arrow: arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GT>;
+            label = "ARROW";
+        };
+
+        add_equal: add_equal {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp EQUAL>;
+            label = "ADD_EQUAL";
+        };
+
+        double_tap: double_tap {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "DOUBLE_TAP";
+        };
+
+        select_word_left: select_word_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT) &kp LC(RIGHT) &kp LC(LS(LEFT))>;
+            label = "SELECT_WORD_LEFT";
+        };
+
+        select_word_right: select_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LC(LS(RIGHT))>;
+            label = "SELECT_WORD_RIGHT";
+        };
+
+        extend_word_left: extend_word_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(LEFT))>;
+            label = "EXTEND_WORD_LEFT";
+        };
+
+        extend_word_right: extend_word_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(RIGHT))>;
+            label = "EXTEND_WORD_RIGHT";
+        };
+
+        select_line_left: select_line_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp END &kp LS(HOME)>;
+            label = "SELECT_LINE_LEFT";
+        };
+
+        select_line_right: select_line_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+            label = "SELECT_LINE_RIGHT";
+        };
+
+        extend_line_left: extend_line_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(UP) &kp LS(HOME)>;
+            label = "EXTEND_LINE_LEFT";
+        };
+
+        extend_line_right: extend_line_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOWN) &kp LS(END)>;
+            label = "EXTEND_LINE_RIGHT";
+        };
+
+        select_mode_key: select_mode_key {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&sl_long_term 0>;
+
+            label = "SELECT_MODE_KEY";
+        };
+
+     };
+
 
     combos { compatible = "zmk,combos"; };
 
