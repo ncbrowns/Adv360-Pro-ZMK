@@ -69,7 +69,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS";
             #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&tog 5>;
+            bindings = <&kp LSHIFT>, <&tog 4>;
         };
 
         layer_sticky_tap_or_hold: layer_sticky_tap_or_hold {
@@ -85,7 +85,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SYM_NAV_LOCK";
             #binding-cells = <0>;
-            bindings = <&layer_sticky_tap_or_hold 6 4>, <&tog 6>;
+            bindings = <&layer_sticky_tap_or_hold 2 3>, <&tog 2>;
         };
 
         hold_tap_keys: hold_tap_keys {
@@ -212,14 +212,6 @@
             bindings = <&sl 2>, <&tog 2>;
         };
 
-        shift_caps2: shift_caps2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SHIFT_CAPS2";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&sk LSHIFT>, <&caps_word_enter>, <&kp CAPS>;
-        };
-
         select_word: select_word {
             compatible = "zmk,behavior-mod-morph";
             label = "SELECT_WORD";
@@ -294,28 +286,63 @@
     };
 
     macros {
+        bt_0: bt_profile_macro_0 {
+            label = "BT_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 0>;
+        };
+
+        bt_1: bt_profile_macro_1 {
+            label = "BT_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 1>;
+        };
+
+        bt_2: bt_profile_macro_2 {
+            label = "BT_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 2>;
+        };
+
+        bt_3: bt_profile_macro_3 {
+            label = "BT_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &bt BT_SEL 3>;
+        };
+
         thanks_pat: thanks_pat {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap_time 10>,
+                <&macro_tap_time 5>,
                 <&kp LS(T) &kp H &kp A &kp N &kp K &kp S &kp COMMA &kp LS(RET) &kp LS(P) &kp A &kp T>;
 
             label = "THANKS_PAT";
         };
 
-        triple_quote: triple_quote {
+        triple_bquote: triple_bquote {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
-            label = "TRIPLE_QUOTE";
+            label = "TRIPLE_BQUOTE";
         };
 
-        caps_word_exit: caps_lock_exit {
+        browser_copy_url: browser_copy_url {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(D) &kp LC(C) &kp ESCAPE &kp TAB>;
+            label = "BROWSER_COPY_URL";
+        };
+
+        caps_word_exit: caps_word_exit {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &tog 4>;
-            label = "CAPS_LOCK_EXIT";
+            label = "CAPS_WORD_EXIT";
         };
 
         tab_switch: tab_switch {
