@@ -339,7 +339,7 @@
 
         shift_caps2: shift_caps2 {
             compatible = "zmk,behavior-tap-dance";
-            label = "SHIFT_CAPS";
+            label = "SHIFT_CAPS2";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&sk LSHIFT>, <&caps_word_enter>, <&kp CAPS>;
