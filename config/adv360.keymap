@@ -204,62 +204,6 @@
             #binding-cells = <0>;
             bindings = <&sym_or_eq SLASH SLASH>, <&double_tap SLASH>;
         };
-
-        select_word: select_word {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SELECT_WORD";
-            bindings = <&select_word_right>, <&select_word_left>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        extend_word: extend_word {
-            compatible = "zmk,behavior-mod-morph";
-            label = "EXTEND_WORD";
-            bindings = <&extend_word_right>, <&extend_word_left>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        select_line: select_line {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SELECT_LINE";
-            bindings = <&select_line_right>, <&select_line_left>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        extend_line: extend_line {
-            compatible = "zmk,behavior-mod-morph";
-            label = "EXTEND_LINE";
-            bindings = <&extend_line_right>, <&extend_line_left>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        thumb_mods: thumb_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "THUMB_MODS";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <2000>;
-            require-prior-idle-ms = <150>;
-            quick-tap-ms = <200>;
-            flavor = "hold-preferred";
-        };
-
-        sl_long_term: sl_long_term {
-            compatible = "zmk,behavior-sticky-key";
-            label = "SL_LONG_TERM";
-            bindings = <&mo>;
-            #binding-cells = <1>;
-            release-after-ms = <60000>;
-        };
     };
 
     macros {
@@ -378,77 +322,6 @@
             bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "DOUBLE_TAP";
         };
-
-        select_word_left: select_word_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LEFT) &kp LC(RIGHT) &kp LC(LS(LEFT))>;
-            label = "SELECT_WORD_LEFT";
-        };
-
-        select_word_right: select_word_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LC(LS(RIGHT))>;
-            label = "SELECT_WORD_RIGHT";
-        };
-
-        extend_word_left: extend_word_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(LEFT))>;
-            label = "EXTEND_WORD_LEFT";
-        };
-
-        extend_word_right: extend_word_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LS(RIGHT))>;
-            label = "EXTEND_WORD_RIGHT";
-        };
-
-        select_line_left: select_line_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp END &kp LS(HOME)>;
-            label = "SELECT_LINE_LEFT";
-        };
-
-        select_line_right: select_line_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END)>;
-            label = "SELECT_LINE_RIGHT";
-        };
-
-        extend_line_left: extend_line_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(UP) &kp LS(HOME)>;
-            label = "EXTEND_LINE_LEFT";
-        };
-
-        extend_line_right: extend_line_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(DOWN) &kp LS(END)>;
-            label = "EXTEND_LINE_RIGHT";
-        };
-
-        select_mode_key: select_mode_key {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&sl_long_term 0>;
-
-            label = "SELECT_MODE_KEY";
-        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -479,9 +352,9 @@
         Lower {
             bindings = <
 &trans  &kp F1      &kp F2         &kp F3     &kp F4                &kp F5                 &trans                                               &trans           &kp F6        &kp F7           &kp F8     &kp F9         &kp F10       &kp F11
-&trans  &kp GRAVE   &triple_quote  &kp TILDE  &tab_switch LALT TAB  &tab_switch LCTRL TAB  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME      &kp PG_DN        &kp PG_UP  &kp END        &thanks_pat   &kp F12
+&trans  &kp GRAVE   &triple_bquote  &kp TILDE  &tab_switch LALT TAB  &tab_switch LCTRL TAB  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME      &kp PG_DN        &kp PG_UP  &kp END        &thanks_pat   &kp F12
 &trans  &sk LGUI    &sk LALT       &sk LCTRL  &sk LSHFT             &trans                 &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp LEFT      &kp DOWN         &kp UP     &kp RIGHT      &trans        &trans
-&trans  &kp LC(Z)   &kp LC(X)      &kp LC(C)  &kp LC(V)             &trans                                          &trans      &trans                           &kp LC(LEFT)  &sl_long_term 0  &trans     &kp LC(RIGHT)  &trans        &trans
+&trans  &kp LC(Z)   &kp LC(X)      &kp LC(C)  &kp LC(V)             &trans                                          &trans      &trans                           &kp LC(LEFT)  &trans  &trans     &kp LC(RIGHT)  &trans        &trans
 &trans  &kp C_PREV  &kp C_NEXT     &trans     &trans                                       &trans           &trans  &trans      &trans  &trans  &trans                         &trans           &trans     &kp C_VOL_DN   &kp C_VOL_UP  &trans
             >;
         };
