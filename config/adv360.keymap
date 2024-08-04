@@ -319,13 +319,13 @@
         };
 
         tab_switch: tab_switch {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
+            compatible = "zmk,behavior-macro-two-param";
+            #binding-cells = <2>;
             bindings =
                 <&macro_press>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 5>,
                 <&macro_tap>,
-                <&kp TAB>,
+                <&macro_param_2to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
                 <&macro_release>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 5>;
@@ -474,11 +474,11 @@
 
         Lower {
             bindings = <
-&trans  &kp F1      &kp F2         &kp F3     &kp F4            &kp F5             &trans                                               &trans           &kp F6        &kp F7           &kp F8     &kp F9         &kp F10       &kp F11
-&trans  &kp GRAVE   &triple_quote  &kp TILDE  &tab_switch LALT  &tab_switch LCTRL  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME      &kp PG_DN        &kp PG_UP  &kp END        &thanks_pat   &kp F12
-&trans  &sk LGUI    &sk LALT       &sk LCTRL  &sk LSHFT         &trans             &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp LEFT      &kp DOWN         &kp UP     &kp RIGHT      &trans        &trans
-&trans  &kp LC(Z)   &kp LC(X)      &kp LC(C)  &kp LC(V)         &trans                                      &trans      &trans                           &kp LC(LEFT)  &sl_long_term 0  &trans     &kp LC(RIGHT)  &trans        &trans
-&trans  &kp C_PREV  &kp C_NEXT     &trans     &trans                               &trans           &trans  &trans      &trans  &trans  &trans                         &trans           &trans     &kp C_VOL_DN   &kp C_VOL_UP  &trans
+&trans  &kp F1      &kp F2         &kp F3     &kp F4                &kp F5                 &trans                                               &trans           &kp F6        &kp F7           &kp F8     &kp F9         &kp F10       &kp F11
+&trans  &kp GRAVE   &triple_quote  &kp TILDE  &tab_switch LALT TAB  &tab_switch LCTRL TAB  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME      &kp PG_DN        &kp PG_UP  &kp END        &thanks_pat   &kp F12
+&trans  &sk LGUI    &sk LALT       &sk LCTRL  &sk LSHFT             &trans                 &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp LEFT      &kp DOWN         &kp UP     &kp RIGHT      &trans        &trans
+&trans  &kp LC(Z)   &kp LC(X)      &kp LC(C)  &kp LC(V)             &trans                                          &trans      &trans                           &kp LC(LEFT)  &sl_long_term 0  &trans     &kp LC(RIGHT)  &trans        &trans
+&trans  &kp C_PREV  &kp C_NEXT     &trans     &trans                                       &trans           &trans  &trans      &trans  &trans  &trans                         &trans           &trans     &kp C_VOL_DN   &kp C_VOL_UP  &trans
             >;
         };
 
