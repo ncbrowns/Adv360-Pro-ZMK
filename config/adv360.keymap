@@ -72,22 +72,6 @@
             bindings = <&kp LSHIFT>, <&tog 6>;
         };
 
-        layer_sticky_tap_or_hold: layer_sticky_tap_or_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_STICKY_TAP_OR_HOLD";
-            bindings = <&mo>, <&sl>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <500>;
-        };
-
-        sym_nav_lock: sym_nav_lock {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SYM_NAV_LOCK";
-            #binding-cells = <0>;
-            bindings = <&layer_sticky_tap_or_hold 3 4>, <&tog 3>;
-        };
-
         hold_tap_keys: hold_tap_keys {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_TAP_KEYS";
@@ -369,11 +353,11 @@
 
         Base {
             bindings = <
-&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                                    &mo 8      &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB      &kp Q      &kp W     &kp E     &kp R      &kp T   &kp C_PLAY_PAUSE                                                         &none      &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
-&kp ESC      &kp A      &kp S     &kp D     &kp F      &kp G   &kp C_MUTE        &sym_nav_lock  &kp LALT      &kp LGUI   &sym_nav_lock  &kp INS    &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
-&shift_caps  &kp Z      &kp X     &kp C     &kp V      &kp B                                    &kp HOME      &kp PG_UP                            &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &shift_caps
-&kp LCTRL    &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp BACKSPACE     &kp DEL        &kp END       &kp PG_DN  &kp ENTER      &kp SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp RCTRL
+&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                                                                 &mo 8                    &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB      &kp Q      &kp W     &kp E     &kp R      &kp T   &kp C_PLAY_PAUSE                                                                                      &none                    &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
+&kp ESC      &kp A      &kp S     &kp D     &kp F      &kp G   &kp C_MUTE                   &esc_sym               &kp LALT      &kp LGUI   &td_nav                  &kp INS                  &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&shift_caps  &kp Z      &kp X     &kp C     &kp V      &kp B                                                       &kp HOME      &kp PG_UP                                                    &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &shift_caps
+&kp LCTRL    &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &thumb_mods LSHFT BACKSPACE  &thumb_mods LCTRL DEL  &kp END       &kp PG_DN  &thumb_mods RCTRL ENTER  &thumb_mods RSHFT SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp RCTRL
             >;
         };
 
@@ -389,11 +373,11 @@
 
         NoThumbMods {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                               &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                               &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans      &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                        &trans      &trans                        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &kp BSPC  &kp DELETE  &trans      &trans  &kp ENTER  &kp SPACE          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -419,31 +403,31 @@
 
         FunctionKeys {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans     &trans     &trans  &trans                                      &trans  &trans  &trans  &trans   &trans   &trans   &trans
+&trans  &trans    &trans    &trans     &trans     &trans  &trans                                      &trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans
+&trans  &sk LGUI  &sk LALT  &sk LCTRL  &sk LSHFT  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans  &trans    &trans    &trans     &trans     &trans                  &trans      &trans                  &trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans
+&trans  &trans    &trans    &trans     &trans             &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans   &trans   &trans   &trans
             >;
         };
 
         CapsWord {
             bindings = <
-&caps_word_exit EQUAL  &kp N1                 &kp N2                  &kp N3                &kp N4                 &kp N5     &trans                                                                                               &trans                 &kp N6     &kp N7              &kp N8                 &kp N9                        &kp N0                         &hold_tap_keys MINUS UNDERSCORE
-&caps_word_exit TAB    &kp LS(Q)              &kp LS(W)               &kp LS(E)             &kp LS(R)              &kp LS(T)  &trans                                                                                               &trans                 &kp LS(Y)  &kp LS(U)           &kp LS(I)              &kp LS(O)                     &kp LS(P)                      &caps_word_exit BACKSLASH
-&caps_word_exit ESC    &kp LS(A)              &hold_tap_keys S LS(S)  &kp LS(D)             &kp LS(F)              &kp LS(G)  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &kp LS(H)  &kp LS(J)           &kp LS(K)              &kp LS(L)                     &caps_word_exit SEMICOLON      &caps_word_exit SQT
-&trans                 &kp LS(Z)              &kp LS(X)               &kp LS(C)             &kp LS(V)              &kp LS(B)                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &kp LS(N)  &kp LS(M)           &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &trans
-&trans                 &caps_word_exit GRAVE  &caps_word_exit CAPS    &caps_word_exit LEFT  &caps_word_exit RIGHT             &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE             &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
+&caps_word_exit EQUAL  &kp N1                 &kp N2                       &kp N3                &kp N4                 &kp N5     &trans                                                                                               &trans                 &kp N6     &kp N7              &kp N8                 &kp N9                        &kp N0                         &caps_word_hold_tap MINUS UNDERSCORE
+&caps_word_exit TAB    &kp LS(Q)              &kp LS(W)                    &kp LS(E)             &kp LS(R)              &kp LS(T)  &trans                                                                                               &trans                 &kp LS(Y)  &kp LS(U)           &kp LS(I)              &kp LS(O)                     &kp LS(P)                      &caps_word_exit BACKSLASH
+&caps_word_exit ESC    &kp LS(A)              &caps_word_hold_tap S LS(S)  &kp LS(D)             &kp LS(F)              &kp LS(G)  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &kp LS(H)  &kp LS(J)           &kp LS(K)              &kp LS(L)                     &caps_word_exit SEMICOLON      &caps_word_exit SQT
+&trans                 &kp LS(Z)              &kp LS(X)                    &kp LS(C)             &kp LS(V)              &kp LS(B)                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &kp LS(N)  &kp LS(M)           &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &trans
+&trans                 &caps_word_exit GRAVE  &caps_word_exit CAPS         &caps_word_exit LEFT  &caps_word_exit RIGHT             &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE             &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
             >;
         };
 
         TabSwitcher {
             bindings = <
-&none  &none  &none  &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
-&none  &none  &none  &none     &none      &none  &none                                         &none  &none        &none   &none     &none    &none  &none
-&none  &none  &none  &none     &none      &none  &none  &none  &none         &none      &none  &none  &kp LS(TAB)  &none   &none     &kp TAB  &none  &none
-&none  &none  &none  &none     &none      &none                &kp HOME      &kp PG_UP                &none        &none   &none     &none    &none  &none
-&none  &none  &none  &kp LEFT  &kp RIGHT         &none  &none  &kp END       &kp PG_DN  &none  &none               &kp UP  &kp DOWN  &none    &none  &none
+&none  &none  &none        &none     &none      &none  &none                                  &none  &none        &none     &none     &none    &none  &none
+&none  &none  &none        &none     &none      &none  &none                                  &none  &none        &none     &none     &none    &none  &none
+&none  &none  &kp LS(TAB)  &none     &kp TAB    &none  &none  &none  &none      &none  &none  &none  &kp LS(TAB)  &kp DOWN  &kp UP    &kp TAB  &none  &none
+&none  &none  &none        &none     &none      &none                &none      &none                &none        &none     &none     &none    &none  &none
+&none  &none  &none        &kp LEFT  &kp RIGHT         &none  &none  &none      &none  &none  &none               &kp UP    &kp DOWN  &none    &none  &none
             >;
         };
 
@@ -452,7 +436,7 @@
 &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans                  &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &none         &none         &bootloader                                            &bootloader             &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &rgb_ug RGB_MEFS_CMD 5  &none  &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none         &none                             &none      &none                                           &none  &none       &none       &none  &none  &none
+&none  &to 0         &to 1         &to 2         &none         &none                             &none      &none                                           &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG                &bl BL_INC  &bl BL_DEC  &none  &none  &none
             >;
         };
