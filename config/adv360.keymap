@@ -72,15 +72,6 @@
             bindings = <&kp LSHIFT>, <&tog 6>;
         };
 
-        hold_tap_keys: hold_tap_keys {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP_KEYS";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
         caps_word_hold_tap: caps_word_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "CAPS_WORD_HOLD_TAP";
