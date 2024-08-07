@@ -97,6 +97,17 @@
             tapping-term-ms = <200>;
         };
 
+        caps_word_hold_tap: caps_word_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CAPS_WORD_HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <0>;
+        };
+
         curly_morph: curly_morph {
             compatible = "zmk,behavior-mod-morph";
             label = "CURLY_MORPH";
@@ -203,6 +214,33 @@
             label = "TD_SLASH";
             #binding-cells = <0>;
             bindings = <&sym_or_eq SLASH SLASH>, <&double_tap SLASH>;
+        };
+
+        thumb_mods: thumb_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "THUMB_MODS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <2500>;
+            require-prior-idle-ms = <250>;
+            quick-tap-ms = <300>;
+            flavor = "hold-preferred";
+            retro-tap;
+        };
+
+        esc_sym: esc_sym {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESC_SYM";
+            #binding-cells = <0>;
+            bindings = <&lt 4 ESC>, <&tog 4>;
+        };
+
+        td_nav: td_nav {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NAV";
+            #binding-cells = <0>;
+            bindings = <&mo 3>, <&tog 3>;
         };
     };
 
