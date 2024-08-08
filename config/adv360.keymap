@@ -344,51 +344,51 @@
 
         Base {
             bindings = <
-&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                                                                 &mo 8                    &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB      &kp Q      &kp W     &kp E     &kp R      &kp T   &kp C_PLAY_PAUSE                                                                                      &none                    &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
-&kp ESC      &kp A      &kp S     &kp D     &kp F      &kp G   &kp C_MUTE                   &esc_sym               &kp LALT      &kp LGUI   &td_nav                  &kp INS                  &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
-&shift_caps  &kp Z      &kp X     &kp C     &kp V      &kp B                                                       &kp HOME      &kp PG_UP                                                    &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &shift_caps
-&kp LCTRL    &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &thumb_mods LSHFT BACKSPACE  &thumb_mods LCTRL DEL  &kp END       &kp PG_DN  &thumb_mods RCTRL ENTER  &thumb_mods RSHFT SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp RCTRL
+&kp EQUAL    &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &none                                                                                                 &mo 8                     &kp N6  &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB      &kp Q      &kp W     &kp E     &kp R      &kp T   &kp C_PLAY_PAUSE                                                                                      &none                     &kp Y   &kp U   &kp I      &kp O     &kp P     &kp BSLH
+&kp ESC      &kp A      &kp S     &kp D     &kp F      &kp G   &kp C_MUTE                   &esc_sym               &kp LALT      &kp LGUI   &td_nav                  &kp INS                   &kp H   &kp J   &kp K      &kp L     &kp SEMI  &kp SQT
+&shift_caps  &kp Z      &kp X     &kp C     &kp V      &kp B                                                       &kp HOME      &kp PG_UP                                                     &kp N   &kp M   &kp COMMA  &kp DOT   &kp FSLH  &shift_caps
+&kp LCTRL    &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &thumb_mods LSHFT BACKSPACE  &thumb_mods LCTRL DEL  &kp END       &kp PG_DN  &thumb_mods RCTRL ENTER  &thumb_mods RSHIFT SPACE          &kp UP  &kp DOWN   &kp LBKT  &kp RBKT  &kp INSERT
             >;
         };
 
         HRM {
             bindings = <
-&trans  &trans                 &trans                 &trans                  &trans                        &trans  &trans                                      &trans  &trans  &trans                          &trans                   &trans                  &trans                          &trans
-&trans  &trans                 &trans                 &trans                  &trans                        &trans  &trans                                      &trans  &trans  &trans                          &trans                   &trans                  &trans                          &trans
-&trans  &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHFT F  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &home_row_right_index RSHIFT J  &home_row_right LCTRL K  &home_row_right RALT L  &home_row_right RGUI SEMICOLON  &trans
-&trans  &trans                 &trans                 &trans                  &trans                        &trans                  &trans      &trans                  &trans  &trans                          &trans                   &trans                  &trans                          &trans
-&trans  &trans                 &trans                 &trans                  &trans                                &trans  &trans  &trans      &trans  &trans  &trans          &trans                          &trans                   &trans                  &trans                          &trans
+&trans  &trans                 &trans                 &trans                  &trans                        &trans  &trans                                      &trans  &trans  &trans                         &trans                   &trans                       &trans                          &trans
+&trans  &trans                 &trans                 &trans                  &trans                        &trans  &trans                                      &trans  &trans  &trans                         &trans                   &trans                       &trans                          &trans
+&trans  &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHFT F  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &home_row_right_index RSHFT J  &home_row_right RCTRL K  &home_row_right RIGHT_ALT L  &home_row_right RGUI SEMICOLON  &trans
+&trans  &trans                 &trans                 &trans                  &trans                        &trans                  &trans      &trans                  &trans  &trans                         &trans                   &trans                       &trans                          &trans
+&trans  &trans                 &trans                 &trans                  &trans                                &trans  &trans  &trans      &trans  &trans  &trans          &trans                         &trans                   &trans                       &trans                          &trans
             >;
         };
 
         NoThumbMods {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                               &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                               &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans      &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                        &trans      &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &kp BSPC  &kp DELETE  &trans      &trans  &kp ENTER  &kp SPACE          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans      &trans      &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                             &trans      &trans                        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &kp BACKSPACE  &kp DELETE  &trans      &trans  &kp ENTER  &kp SPACE          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         Navigation {
             bindings = <
-&trans  &kp F1      &kp F2          &kp F3     &kp F4                &kp F5                 &trans                                               &trans           &kp F6        &kp F7     &kp F8     &kp F9         &kp F10       &kp F11
-&trans  &kp GRAVE   &triple_bquote  &kp TILDE  &tab_switch LALT TAB  &tab_switch LCTRL TAB  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME      &kp PG_DN  &kp PG_UP  &kp END        &thanks_pat   &kp F12
-&trans  &sk LGUI    &sk LALT        &sk LCTRL  &sk LSHFT             &trans                 &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT      &trans        &trans
-&trans  &kp LC(Z)   &kp LC(X)       &kp LC(C)  &kp LC(V)             &trans                                          &trans      &trans                           &kp LC(LEFT)  &trans     &trans     &kp LC(RIGHT)  &trans        &trans
-&trans  &kp C_PREV  &kp C_NEXT      &trans     &trans                                       &trans           &trans  &trans      &trans  &trans  &trans                         &trans     &trans     &kp C_VOL_DN   &kp C_VOL_UP  &trans
+&kp LA(LC(F3))  &kp F1        &kp F2         &kp F3                &kp F4                     &kp F5                 &trans                                               &trans           &kp F6              &kp F7             &kp F8           &kp F9         &kp F10       &kp F11
+&kp LA(LC(F2))  &kp LA(LEFT)  &kp LA(RIGHT)  &tab_switch LALT TAB  &tab_switch LCTRL LS(TAB)  &tab_switch LCTRL TAB  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME            &kp PAGE_DOWN      &kp PAGE_UP      &kp END        &thanks_pat   &kp F12
+&kp LA(LC(F1))  &sk LGUI      &sk LALT       &sk LCTRL             &sk LSHFT                  &trans                 &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp LEFT            &kp DOWN           &kp UP           &kp RIGHT      &trans        &trans
+&trans          &kp LC(Z)     &kp LC(X)      &kp LC(C)             &kp LC(V)                  &browser_copy_url                               &trans      &trans                           &kp LC(LEFT_ARROW)  &kp LC(PAGE_DOWN)  &kp LC(PAGE_UP)  &kp LC(RIGHT)  &trans        &trans
+&trans          &kp C_PREV    &kp C_NEXT     &trans                &trans                                            &trans           &trans  &trans      &trans  &trans  &trans                               &trans             &trans           &kp C_VOL_DN   &kp C_VOL_UP  &trans
             >;
         };
 
         Symbol {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans                  &trans                        &trans                      &trans     &trans                        &trans                                      &trans  &trans       &trans          &trans    &trans              &trans   &trans
+&trans  &kp GRAVE               &td_xor                       &td_or                      &td_and    &sym_or_eq QUESTION QUESTION  &trans                                      &trans  &kp AT_SIGN  &curly_morph    &kp RBRC  &td_lt              &td_gt   &trans
+&trans  &sym_or_eq TILDE TILDE  &sym_or_eq ASTERISK ASTERISK  &td_minus                   &td_plus   &trans                        &trans  &tog 4  &trans      &trans  &trans  &trans  &kp DOLLAR   &paren_morph    &kp RPAR  &td_eq              &td_not  &trans
+&trans  &triple_bquote          &trans                        &sym_or_eq PERCENT PERCENT  &td_slash  &trans                                        &trans      &trans                  &kp HASH     &bracket_morph  &kp RBKT  &sym_or_eq DOT DOT  &arrow   &trans
+&trans  &trans                  &trans                        &trans                      &trans                                   &trans  &trans  &trans      &trans  &trans  &trans               &trans          &trans    &trans              &trans   &trans
             >;
         };
 
@@ -404,21 +404,21 @@
 
         CapsWord {
             bindings = <
-&caps_word_exit EQUAL  &kp N1                 &kp N2                       &kp N3                &kp N4                 &kp N5     &trans                                                                                               &trans                 &kp N6     &kp N7              &kp N8                 &kp N9                        &kp N0                         &caps_word_hold_tap MINUS UNDERSCORE
-&caps_word_exit TAB    &kp LS(Q)              &kp LS(W)                    &kp LS(E)             &kp LS(R)              &kp LS(T)  &trans                                                                                               &trans                 &kp LS(Y)  &kp LS(U)           &kp LS(I)              &kp LS(O)                     &kp LS(P)                      &caps_word_exit BACKSLASH
-&caps_word_exit ESC    &kp LS(A)              &caps_word_hold_tap S LS(S)  &kp LS(D)             &kp LS(F)              &kp LS(G)  &trans  &trans               &trans                    &trans                 &trans                 &trans                 &kp LS(H)  &kp LS(J)           &kp LS(K)              &kp LS(L)                     &caps_word_exit SEMICOLON      &caps_word_exit SQT
-&trans                 &kp LS(Z)              &kp LS(X)                    &kp LS(C)             &kp LS(V)              &kp LS(B)                               &caps_word_exit HOME      &caps_word_exit PG_UP                                                &kp LS(N)  &kp LS(M)           &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &trans
-&trans                 &caps_word_exit GRAVE  &caps_word_exit CAPS         &caps_word_exit LEFT  &caps_word_exit RIGHT             &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit ENTER  &caps_word_exit SPACE             &caps_word_exit UP  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &trans
+&caps_word_exit EQUAL   &kp N1                 &kp N2                       &kp N3                &kp N4                 &kp N5     &trans                                                                                             &trans                 &kp N6     &kp N7                    &kp N8                 &kp N9                        &kp N0                         &caps_word_hold_tap MINUS LS(MINUS)
+&caps_word_exit TAB     &kp LS(Q)              &kp LS(W)                    &kp LS(E)             &kp LS(R)              &kp LS(T)  &trans                                                                                             &trans                 &kp LS(Y)  &kp LS(U)                 &kp LS(I)              &kp LS(O)                     &kp LS(P)                      &caps_word_exit BACKSLASH
+&caps_word_exit ESCAPE  &kp LS(A)              &caps_word_hold_tap S LS(S)  &kp LS(D)             &kp LS(F)              &kp LS(G)  &trans  &tog 6               &trans                    &trans                 &tog 6               &trans                 &kp LS(H)  &kp LS(J)                 &kp LS(K)              &kp LS(L)                     &caps_word_exit SEMI           &caps_word_exit SQT
+&trans                  &kp LS(Z)              &kp LS(X)                    &kp LS(C)             &kp LS(V)              &kp LS(B)                               &caps_word_exit HOME      &caps_word_exit PG_UP                                              &kp LS(N)  &kp LS(M)                 &caps_word_exit COMMA  &caps_word_exit PERIOD        &caps_word_exit SLASH          &trans
+&trans                  &caps_word_exit GRAVE  &caps_word_exit CAPS         &caps_word_exit LEFT  &caps_word_exit RIGHT             &trans  &caps_word_exit DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit RET  &caps_word_exit SPACE             &caps_word_exit UP_ARROW  &caps_word_exit DOWN   &caps_word_exit LEFT_BRACKET  &caps_word_exit RIGHT_BRACKET  &caps_word_exit INS
             >;
         };
 
         TabSwitcher {
             bindings = <
-&none  &none  &none        &none     &none      &none  &none                                  &none  &none        &none     &none     &none    &none  &none
-&none  &none  &none        &none     &none      &none  &none                                  &none  &none        &none     &none     &none    &none  &none
-&none  &none  &kp LS(TAB)  &none     &kp TAB    &none  &none  &none  &none      &none  &none  &none  &kp LS(TAB)  &kp DOWN  &kp UP    &kp TAB  &none  &none
-&none  &none  &none        &none     &none      &none                &none      &none                &none        &none     &none     &none    &none  &none
-&none  &none  &none        &kp LEFT  &kp RIGHT         &none  &none  &none      &none  &none  &none               &kp UP    &kp DOWN  &none    &none  &none
+&none  &none  &none        &none  &none    &none  &none                                  &none  &none        &none         &none         &none    &none  &none
+&none  &none  &none        &none  &none    &none  &none                                  &none  &none        &none         &none         &none    &none  &none
+&none  &none  &kp LS(TAB)  &none  &kp TAB  &none  &none  &none  &none      &none  &none  &none  &kp LS(TAB)  &kp DOWN      &kp UP_ARROW  &kp TAB  &none  &none
+&none  &none  &none        &none  &none    &none                &none      &none                &none        &none         &none         &none    &none  &none
+&none  &none  &none        &none  &none           &none  &none  &none      &none  &none  &none               &kp UP_ARROW  &kp DOWN      &none    &none  &none
             >;
         };
 
