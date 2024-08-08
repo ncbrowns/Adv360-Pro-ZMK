@@ -376,7 +376,7 @@
             bindings = <
 &kp LA(LC(F3))  &kp F1        &kp F2         &kp F3                &kp F4                     &kp F5                 &trans                                               &trans           &kp F6              &kp F7             &kp F8           &kp F9         &kp F10       &kp F11
 &kp LA(LC(F2))  &kp LA(LEFT)  &kp LA(RIGHT)  &tab_switch LALT TAB  &tab_switch LCTRL LS(TAB)  &tab_switch LCTRL TAB  &kp PRINTSCREEN                                      &kp SCROLLLOCK   &kp HOME            &kp PAGE_DOWN      &kp PAGE_UP      &kp END        &thanks_pat   &kp F12
-&kp LA(LC(F1))  &sk LGUI      &sk LALT       &sk LCTRL             &sk LSHFT                  &trans                 &kp SYSREQ       &trans  &trans      &trans  &trans  &kp PAUSE_BREAK  &kp LEFT            &kp DOWN           &kp UP           &kp RIGHT      &trans        &trans
+&kp LA(LC(F1))  &sk LGUI      &sk LALT       &sk LCTRL             &sk LSHFT                  &trans                 &kp SYSREQ       &trans  &trans      &trans  &tog 3  &kp PAUSE_BREAK  &kp LEFT            &kp DOWN           &kp UP           &kp RIGHT      &trans        &trans
 &trans          &kp LC(Z)     &kp LC(X)      &kp LC(C)             &kp LC(V)                  &browser_copy_url                               &trans      &trans                           &kp LC(LEFT_ARROW)  &kp LC(PAGE_DOWN)  &kp LC(PAGE_UP)  &kp LC(RIGHT)  &trans        &trans
 &trans          &kp C_PREV    &kp C_NEXT     &trans                &trans                                            &trans           &trans  &trans      &trans  &trans  &trans                               &trans             &trans           &kp C_VOL_DN   &kp C_VOL_UP  &trans
             >;
@@ -384,11 +384,11 @@
 
         Symbol {
             bindings = <
-&trans  &trans                  &trans                        &trans                      &trans     &trans                        &trans                                      &trans  &trans       &trans          &trans    &trans              &trans   &trans
-&trans  &kp GRAVE               &td_xor                       &td_or                      &td_and    &sym_or_eq QUESTION QUESTION  &trans                                      &trans  &kp AT_SIGN  &curly_morph    &kp RBRC  &td_lt              &td_gt   &trans
-&trans  &sym_or_eq TILDE TILDE  &sym_or_eq ASTERISK ASTERISK  &td_minus                   &td_plus   &trans                        &trans  &tog 4  &trans      &trans  &trans  &trans  &kp DOLLAR   &paren_morph    &kp RPAR  &td_eq              &td_not  &trans
-&trans  &triple_bquote          &trans                        &sym_or_eq PERCENT PERCENT  &td_slash  &trans                                        &trans      &trans                  &kp HASH     &bracket_morph  &kp RBKT  &sym_or_eq DOT DOT  &arrow   &trans
-&trans  &trans                  &trans                        &trans                      &trans                                   &trans  &trans  &trans      &trans  &trans  &trans               &trans          &trans    &trans              &trans   &trans
+&trans  &trans                  &trans                        &trans                      &trans     &trans                        &trans                                      &trans  &trans       &trans          &trans        &trans              &trans   &trans
+&trans  &kp GRAVE               &td_xor                       &td_or                      &td_and    &sym_or_eq QUESTION QUESTION  &trans                                      &trans  &kp AT_SIGN  &curly_morph    &kp LS(RBRC)  &td_lt              &td_gt   &trans
+&trans  &sym_or_eq TILDE TILDE  &sym_or_eq ASTERISK ASTERISK  &td_minus                   &td_plus   &trans                        &trans  &tog 4  &trans      &trans  &trans  &trans  &kp DOLLAR   &paren_morph    &kp LS(RPAR)  &td_eq              &td_not  &trans
+&trans  &triple_bquote          &trans                        &sym_or_eq PERCENT PERCENT  &td_slash  &trans                                        &trans      &trans                  &kp HASH     &bracket_morph  &kp RBKT      &sym_or_eq DOT DOT  &arrow   &trans
+&trans  &trans                  &trans                        &trans                      &trans                                   &trans  &trans  &trans      &trans  &trans  &trans               &trans          &trans        &trans              &trans   &trans
             >;
         };
 
