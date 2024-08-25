@@ -435,11 +435,11 @@
 
         CapsWord {
             bindings = <
-&exitcwkey EQUAL   &cw1             &cw2                         &cw3             &cw4              &cw5       &trans                                                                                                               &trans                 &cw6       &cw7                 &cw8              &cw9                     &cw0                      &caps_word_hold_tap MINUS LS(MINUS)
-&exitcwkey TAB     &kp LS(Q)        &kp LS(W)                    &kp LS(E)        &kp LS(R)         &kp LS(T)  &trans                                                                                                               &trans                 &kp LS(Y)  &kp LS(U)            &kp LS(I)         &kp LS(O)                &kp LS(P)                 &exitcwkey BACKSLASH
-&exitcwkey ESCAPE  &kp LS(A)        &caps_word_hold_tap S LS(S)  &kp LS(D)        &kp LS(F)         &kp LS(G)  &trans                    &tog 5               &trans                    &trans                 &tog 5               &trans                 &kp LS(H)  &kp LS(J)            &kp LS(K)         &kp LS(L)                &exitcwkey SEMI           &exitcwkey SQT
-&kp LSHIFT         &kp LS(Z)        &kp LS(X)                    &kp LS(C)        &kp LS(V)         &kp LS(B)                                                 &caps_word_exit HOME      &caps_word_exit PG_UP                                              &kp LS(N)  &kp LS(M)            &exitcwkey COMMA  &exitcwkey PERIOD        &exitcwkey SLASH          &kp RSHFT
-&trans             &exitcwkey HOME  &exitcwkey END               &exitcwkey LEFT  &exitcwkey RIGHT             &cwbackspace 1 BACKSPACE  &cwthumblayer 3 DEL  &caps_word_exit END       &caps_word_exit PG_DN  &caps_word_exit RET  &caps_word_exit SPACE             &exitcwkey UP_ARROW  &exitcwkey DOWN   &exitcwkey LEFT_BRACKET  &exitcwkey RIGHT_BRACKET  &exitcwkey INS
+&exitcwkey EQUAL   &cw1             &cw2                         &cw3             &cw4              &cw5       &trans                                                                                                                      &trans            &cw6       &cw7                 &cw8              &cw9                     &cw0                      &caps_word_hold_tap MINUS LS(MINUS)
+&exitcwkey TAB     &kp LS(Q)        &kp LS(W)                    &kp LS(E)        &kp LS(R)         &kp LS(T)  &trans                                                                                                                      &trans            &kp LS(Y)  &kp LS(U)            &kp LS(I)         &kp LS(O)                &kp LS(P)                 &exitcwkey BACKSLASH
+&exitcwkey ESCAPE  &kp LS(A)        &caps_word_hold_tap S LS(S)  &kp LS(D)        &kp LS(F)         &kp LS(G)  &trans                    &tog 5               &exitcwkey LGUI             &exitcwkey RGUI           &cwthumblayer 2 TAB    &trans            &kp LS(H)  &kp LS(J)            &kp LS(K)         &kp LS(L)                &exitcwkey SEMI           &exitcwkey SQT
+&kp LSHIFT         &kp LS(Z)        &kp LS(X)                    &kp LS(C)        &kp LS(V)         &kp LS(B)                                                 &cwthumbmods LALT C_PP      &cwthumbmods RALT C_MUTE                                           &kp LS(N)  &kp LS(M)            &exitcwkey COMMA  &exitcwkey PERIOD        &exitcwkey SLASH          &kp RSHFT
+&trans             &exitcwkey HOME  &exitcwkey END               &exitcwkey LEFT  &exitcwkey RIGHT             &cwbackspace 1 BACKSPACE  &cwthumblayer 3 DEL  &exitcwlayer 7              &exitcwlayer 7            &cwthumblayer 3 ENTER  &exitcwkey SPACE             &exitcwkey UP_ARROW  &exitcwkey DOWN   &exitcwkey LEFT_BRACKET  &exitcwkey RIGHT_BRACKET  &exitcwkey INS
             >;
         };
 
@@ -455,11 +455,11 @@
 
         System {
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans                  &none  &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none         &none         &bootloader                                            &bootloader             &none  &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &rgb_ug RGB_MEFS_CMD 5  &none  &none       &none       &none  &none  &none
-&none  &to 0         &to 0         &to 0         &none         &none                             &none      &none                                           &none  &none       &none       &none  &none  &none
-&none  &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG                &bl BL_INC  &bl BL_DEC  &none  &none  &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR                                                                             &trans                  &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none         &bootloader                                                                            &bootloader             &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none         &none                  &flash_toggle_layer 4  &none      &none  &flash_toggle_layer 2  &rgb_ug RGB_MEFS_CMD 5  &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none                                                       &none      &none                                                 &none  &bl BL_TOG  &none       &none  &none  &none
+&none  &none         &none         &none         &none                       &flash_toggle_layer 1  &flash_toggle_layer 3  &none      &none  &flash_toggle_layer 3  &none                          &bl BL_INC  &bl BL_DEC  &none  &none  &rgb_ug RGB_TOG
             >;
         };
     };
