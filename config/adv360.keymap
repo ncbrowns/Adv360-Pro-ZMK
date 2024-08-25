@@ -369,13 +369,6 @@
             bindings = <&macro_param_1to1 &mo MACRO_PLACEHOLDER &flash_toggle_layer 5>;
             label = "EXITCWMOD";
         };
-
-        exitcwmagic: exitcwmagic {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&flash_toggle_layer 5 &macro_param_1to1 &magic MACRO_PLACEHOLDER 0>;
-            label = "EXITCWMAGIC";
-        };
     };
 
     combos { compatible = "zmk,combos"; };
