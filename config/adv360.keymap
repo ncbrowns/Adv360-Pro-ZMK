@@ -237,6 +237,26 @@
             flavor = "hold-preferred";
             retro-tap;
         };
+
+        alttab: alttab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALTTAB";
+            bindings = <&enterat>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "tap-preferred";
+        };
+
+        ctrltab: ctrltab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CTRLTAB";
+            bindings = <&enterct>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -299,61 +319,11 @@
             label = "EXITCWKEY";
         };
 
-        tab_switch: tab_switch {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings =
-                <&macro_press>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 6>,
-                <&macro_tap>,
-                <&macro_param_2to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &mo 6>;
-
-            label = "TAB_SWITCH";
-        };
-
-        curly_pair: curly_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACE &kp RBRC &kp LEFT>;
-            label = "CURLY_PAIR";
-        };
-
-        paren_pair: paren_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LPAR &kp RPAR &kp LEFT>;
-            label = "PAREN_PAIR";
-        };
-
-        bracket_pair: bracket_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
-            label = "BRACKET_PAIR";
-        };
-
         arrow: arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp MINUS &kp GT>;
             label = "ARROW";
-        };
-
-        add_equal: add_equal {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp EQUAL>;
-            label = "ADD_EQUAL";
-        };
-
-        double_tap: double_tap {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "DOUBLE_TAP";
         };
 
         flash_toggle_layer: flash_toggle_layer {
@@ -368,6 +338,41 @@
             #binding-cells = <1>;
             bindings = <&macro_param_1to1 &mo MACRO_PLACEHOLDER &flash_toggle_layer 5>;
             label = "EXITCWMOD";
+        };
+        enterat: enteralttab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp TAB &flash_toggle_layer 6>;
+
+            label = "ENTERALTTAB";
+        };
+
+        exitat: exitalttab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_release>,
+                <&kp LALT &kp LCTRL>,
+                <&macro_tap>,
+                <&flash_toggle_layer 6>;
+
+            label = "EXITALTTAB";
+        };
+
+        enterct: enterct {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &flash_toggle_layer 6>;
+
+            label = "ENTERCT";
         };
     };
 
@@ -398,11 +403,11 @@
 
         LeftWithMouse {
             bindings = <
-&trans          &trans     &trans                     &trans                &trans                 &trans             &trans                                                                                            &trans           &trans  &trans      &trans     &trans    &trans       &trans
-&kp LC(LA(F3))  &trans     &tab_switch LCTRL LS(TAB)  &tab_switch LALT TAB  &tab_switch LCTRL TAB  &trans             &kp PRINTSCREEN                                                                                   &kp SCROLLLOCK   &trans  &trans      &trans     &trans    &thanks_pat  &trans
-&kp LC(LA(F2))  &sk LGUI   &sk LALT                   &sk LCTRL             &sk LSHFT              &trans             &kp SYSREQ       &trans  &trans                     &trans                 &flash_toggle_layer 2  &kp PAUSE_BREAK  &trans  &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI     &trans
-&kp LA(LC(F1))  &kp LC(Z)  &kp LC(X)                  &kp LC(C)             &kp LC(V)              &browser_copy_url                           &trans                     &trans                                                         &trans  &trans      &trans     &trans    &trans       &trans
-&trans          &trans     &trans                     &trans                &trans                                    &trans           &trans  &flash_toggle_layer 2      &flash_toggle_layer 2  &trans                 &trans                   &trans      &trans     &trans    &trans       &trans
+&trans          &trans     &trans                        &trans             &trans                &trans             &trans                                                                                            &trans           &trans  &trans      &trans     &trans    &trans       &trans
+&kp LC(LA(F3))  &trans     &ctrltab LS(TAB) LC(LS(TAB))  &alttab 0 LA(TAB)  &ctrltab TAB LC(TAB)  &trans             &kp PRINTSCREEN                                                                                   &kp SCROLLLOCK   &trans  &trans      &trans     &trans    &thanks_pat  &trans
+&kp LC(LA(F2))  &sk LGUI   &sk LALT                      &sk LCTRL          &sk LSHFT             &trans             &kp SYSREQ       &trans  &trans                     &trans                 &flash_toggle_layer 2  &kp PAUSE_BREAK  &trans  &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI     &trans
+&kp LA(LC(F1))  &kp LC(Z)  &kp LC(X)                     &kp LC(C)          &kp LC(V)             &browser_copy_url                           &trans                     &trans                                                         &trans  &trans      &trans     &trans    &trans       &trans
+&trans          &trans     &trans                        &trans             &trans                                   &trans           &trans  &flash_toggle_layer 2      &flash_toggle_layer 2  &trans                 &trans                   &trans      &trans     &trans    &trans       &trans
             >;
         };
 
@@ -438,11 +443,11 @@
 
         TabSwitcher {
             bindings = <
-&none  &none  &none        &none     &none      &none  &none                                  &none  &none        &none         &none         &none    &none  &none
-&none  &none  &none        &none     &none      &none  &none                                  &none  &none        &none         &none         &none    &none  &none
-&none  &none  &kp LS(TAB)  &none     &kp TAB    &none  &none  &none  &none      &none  &none  &none  &kp LS(TAB)  &kp DOWN      &kp UP_ARROW  &kp TAB  &none  &none
-&none  &none  &none        &none     &none      &none                &none      &none                &none        &none         &none         &none    &none  &none
-&none  &none  &none        &kp LEFT  &kp RIGHT         &none  &none  &none      &none  &none  &none               &kp UP_ARROW  &kp DOWN      &none    &none  &none
+&none    &none  &none  &none     &none      &none  &none                                  &none  &none        &none          &none         &none    &none  &none
+&none    &none  &none  &none     &none      &none  &none                                  &none  &kp HOME     &kp PAGE_DOWN  &kp PAGE_UP   &kp END  &none  &none
+&exitat  &none  &none  &none     &none      &none  &none  &none  &none      &none  &none  &none  &kp LS(TAB)  &kp DOWN       &kp UP_ARROW  &kp TAB  &none  &none
+&none    &none  &none  &none     &none      &none                &none      &none                &none        &none          &none         &none    &none  &none
+&none    &none  &none  &kp LEFT  &kp RIGHT         &none  &none  &none      &none  &none  &none               &kp UP_ARROW   &kp DOWN      &none    &none  &none
             >;
         };
 
