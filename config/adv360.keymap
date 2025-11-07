@@ -383,13 +383,13 @@
         };
 
         exittab: exitalttab {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings =
                 <&macro_release>,
                 <&kp LALT &kp LCTRL>,
                 <&macro_tap>,
-                <&flash_toggle_layer 6 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+                <&flash_toggle_layer 6>;
 
             label = "EXITALTTAB";
         };
