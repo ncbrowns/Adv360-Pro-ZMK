@@ -424,11 +424,11 @@
 
         Navigation {
             bindings = <
-&none      &kp LC(LA(F1))  &kp LC(LA(F2))  &kp LC(LA(F3))                &none                 &none              &trans                                  &trans  &kp TILDE       &kp INSERT       &none             &none              &none           &none
-&none      &none           &kp LC(W)       &ctrltab LS(TAB) LC(LS(TAB))  &ctrltab TAB LC(TAB)  &none              &trans                                  &trans  &kp HOME        &kp PAGE_DOWN    &kp PAGE_UP       &kp END            &thanks_pat     &kp LG(LA(K))
-&none      &kp LGUI        &kp LALT        &kp LCTRL                     &kp LSHFT             &alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &kp LEFT_ARROW  &kp DOWN         &kp UP_ARROW      &kp RIGHT          &kp GRAVE       &kp LC(PAUSE_BREAK)
-&kp LSHFT  &kp LC(Z)       &kp LC(X)       &kp LC(C)                     &kp LC(V)             &browser_copy_url                 &none      &none                 &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &triple_bquote  &kp RSHIFT
-&none      &none           &none           &kp C_PREV                    &kp C_NEXT                               &none   &none  &none      &none  &none  &none                   &kp C_VOL_DN     &kp C_VOL_UP      &kp C_MUTE         &none           &none
+&none      &kp LC(LA(F1))  &kp LC(LA(F2))  &kp LC(LA(F3))   &none        &none              &trans                                  &trans  &kp TILDE       &kp INSERT       &none             &none              &none           &none
+&none      &none           &kp LC(W)       &kp LS(LC(TAB))  &kp LC(TAB)  &none              &trans                                  &trans  &kp HOME        &kp PAGE_DOWN    &kp PAGE_UP       &kp END            &thanks_pat     &kp LG(LA(K))
+&none      &kp LGUI        &kp LALT        &kp LCTRL        &kp LSHFT    &alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &kp LEFT_ARROW  &kp DOWN         &kp UP_ARROW      &kp RIGHT          &kp GRAVE       &kp LC(PAUSE_BREAK)
+&kp LSHFT  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)    &browser_copy_url                 &none      &none                 &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &triple_bquote  &kp RSHIFT
+&none      &none           &none           &kp C_PREV       &kp C_NEXT                      &none   &none  &none      &none  &none  &none                   &kp C_VOL_DN     &kp C_VOL_UP      &kp C_MUTE         &none           &none
             >;
         };
 
