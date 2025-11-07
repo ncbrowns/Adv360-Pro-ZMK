@@ -484,11 +484,11 @@
 
         MouseCompanion {
             bindings = <
-&none  &none      &none         &none                         &kp LT                &kp GT             &trans                                  &trans  &none  &none  &none  &none  &none  &none
-&none  &none      &kp LC(W)     &ctrltab LS(TAB) LS(LC(TAB))  &ctrltab TAB LC(TAB)  &none              &trans                                  &trans  &none  &none  &none  &none  &none  &none
-&none  &kp LGUI   &kp LEFT_ALT  &kp LCTRL                     &kp LSHFT             &alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &none  &none  &none  &none  &none  &none
-&none  &kp LC(Z)  &kp LC(X)     &kp LC(C)                     &kp LC(V)             &browser_copy_url                 &none      &none                 &none  &none  &none  &none  &none  &none
-&none  &none      &none         &none                         &none                                    &tog 7  &none  &none      &none  &none  &none          &none  &none  &none  &none  &none
+&none  &none      &none         &none            &kp LT       &kp GT             &trans                                  &trans  &none  &none  &none  &none  &none  &none
+&none  &none      &kp LC(W)     &kp LS(LC(TAB))  &kp LC(TAB)  &none              &trans                                  &trans  &none  &none  &none  &none  &none  &none
+&none  &kp LGUI   &kp LEFT_ALT  &kp LCTRL        &kp LSHFT    &alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &none  &none  &none  &none  &none  &none
+&none  &kp LC(Z)  &kp LC(X)     &kp LC(C)        &kp LC(V)    &browser_copy_url                 &none      &none                 &none  &none  &none  &none  &none  &none
+&none  &none      &none         &none            &none                           &tog 7  &none  &none      &none  &none  &none          &none  &none  &none  &none  &none
             >;
         };
     };
