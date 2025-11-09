@@ -118,96 +118,6 @@
             retro-tap;
         };
 
-        cw1: cw1 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW1";
-            bindings = <&kp N1>, <&exitcwkey EXCLAMATION>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw2: cw2 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW2";
-            bindings = <&kp N2>, <&exitcwkey AT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw3: cw3 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW3";
-            bindings = <&kp N3>, <&exitcwkey HASH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw4: cw4 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW4";
-            bindings = <&kp N4>, <&exitcwkey HASH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw5: cw5 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW5";
-            bindings = <&kp N5>, <&exitcwkey PERCENT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw6: cw6 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW6";
-            bindings = <&kp N6>, <&exitcwkey CARET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw7: cw7 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW7";
-            bindings = <&kp N7>, <&exitcwkey AMPERSAND>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw8: cw8 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW8";
-            bindings = <&kp N8>, <&exitcwkey ASTERISK>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw9: cw9 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW9";
-            bindings = <&kp N9>, <&exitcwkey LEFT_PARENTHESIS>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        cw0: cw0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "CW0";
-            bindings = <&kp N0>, <&exitcwkey RIGHT_PARENTHESIS>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         cwthumbmods: cwthumbmods {
             compatible = "zmk,behavior-hold-tap";
             label = "CWTHUMBMODS";
@@ -257,21 +167,54 @@
             flavor = "tap-preferred";
         };
 
-        ctrltab: ctrltab {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CTRLTAB";
-            bindings = <&enterct>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            flavor = "tap-preferred";
-        };
-
         playpause: playpause {
             compatible = "zmk,behavior-tap-dance";
             label = "PLAYPAUSE";
             #binding-cells = <0>;
             bindings = <&kp C_PLAY_PAUSE>, <&kp LS(C_PLAY_PAUSE)>;
+        };
+
+        caps_word_underscore: caps_word_underscore {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CAPS_WORD_UNDERSCORE";
+            bindings = <&exitcwkey>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+        };
+
+        home_row_left_index_cw: home_row_left_index_cw {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW_LEFT_INDEX_CW";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <150>;
+            flavor = "tap-preferred";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 68 69 70 71 72 73 74 75 37 35 36 52 65 66 67>;
+        };
+
+        home_row_right_index_cw: home_row_right_index_cw {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOME_ROW_RIGHT_INDEX_CW";
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <150>;
+            flavor = "tap-preferred";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 37 46 47 48 49 50 51 52 53 60 61 62 63 64 65 66 67 68 38 68 69 70>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        caps_word_shift: caps_word_shift {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CAPS_WORD_SHIFT";
+            #binding-cells = <0>;
+            bindings = <&mo 5>, <&tog 4>;
         };
     };
 
@@ -377,7 +320,7 @@
                 <&macro_press>,
                 <&kp LALT>,
                 <&macro_tap>,
-                <&kp TAB &flash_toggle_layer 6>;
+                <&kp TAB &flash_toggle_layer 7>;
 
             label = "ENTERALTTAB";
         };
@@ -389,7 +332,7 @@
                 <&macro_release>,
                 <&kp LALT &kp LCTRL>,
                 <&macro_tap>,
-                <&flash_toggle_layer 6>;
+                <&flash_toggle_layer 7>;
 
             label = "EXITALTTAB";
         };
@@ -401,7 +344,7 @@
                 <&macro_press>,
                 <&kp LCTRL>,
                 <&macro_tap>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &flash_toggle_layer 6>;
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &flash_toggle_layer 7>;
 
             label = "ENTERCT";
         };
@@ -414,11 +357,11 @@
 
         Base {
             bindings = <
-&kp EQUAL    &kp N1                 &kp N2                 &kp N3                  &kp N4                        &kp N5  &mo 5                                                                                               &mo 5       &kp N6  &kp N7                         &kp N8                   &kp N9                  &kp N0                     &kp MINUS
+&kp EQUAL    &kp N1                 &kp N2                 &kp N3                  &kp N4                        &kp N5  &mo 6                                                                                               &mo 6       &kp N6  &kp N7                         &kp N8                   &kp N9                  &kp N0                     &kp MINUS
 &kp TAB      &kp Q                  &kp W                  &kp E                   &kp R                         &kp T   &kp C_PLAY_PAUSE                                                                                    &none       &kp Y   &kp U                          &kp I                    &kp O                   &kp P                      &kp BSLH
-&kp ESC      &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHFT F  &kp G   &kp C_MUTE                &tog 7                 &kp LALT      &kp LGUI       &kp RCTRL             &playpause  &kp H   &home_row_right_index RSHFT J  &home_row_right RCTRL K  &home_row_right RALT L  &home_row_right RGUI SEMI  &kp SQT
+&kp ESC      &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHFT F  &kp G   &kp C_MUTE                &tog 8                 &kp LALT      &kp LGUI       &kp RCTRL             &playpause  &kp H   &home_row_right_index RSHFT J  &home_row_right RCTRL K  &home_row_right RALT L  &home_row_right RGUI SEMI  &kp SQT
 &shift_caps  &kp Z                  &kp X                  &kp C                   &kp V                         &kp B                                                    &kp HOME      &kp PAGE_UP                                      &kp N   &kp M                          &kp COMMA                &kp DOT                 &kp FSLH                   &shift_caps
-&kp LCTRL    &kp HOME               &kp END                &kp LEFT                &kp RIGHT                             &thumb_layer 1 BACKSPACE  &thumb_layer 2 DELETE  &kp END       &kp PAGE_DOWN  &thumb_layer 3 ENTER  &kp SPACE           &kp UP                         &kp DOWN                 &kp LBKT                &kp RBKT                   &kp LCTRL
+&kp LCTRL    &kp GRAVE              &kp CAPSLOCK           &kp LEFT                &kp RIGHT                             &thumb_layer 1 BACKSPACE  &thumb_layer 2 DELETE  &kp END       &kp PAGE_DOWN  &thumb_layer 3 ENTER  &kp SPACE           &kp UP                         &kp DOWN                 &kp LBKT                &kp RBKT                   &kp LCTRL
             >;
         };
 
@@ -454,11 +397,21 @@
 
         CapsWord {
             bindings = <
-&exitcwkey EQUAL   &cw1             &cw2                         &cw3             &cw4                          &cw5       &trans                                                                                                              &trans            &cw6       &cw7                            &cw8              &cw9                     &cw0                      &caps_word_hold_tap MINUS LS(MINUS)
-&exitcwkey TAB     &kp LS(Q)        &kp LS(W)                    &kp LS(E)        &kp LS(R)                     &kp LS(T)  &trans                                                                                                              &trans            &kp LS(Y)  &kp LS(U)                       &kp LS(I)         &kp LS(O)                &kp LS(P)                 &exitcwkey BACKSLASH
-&exitcwkey ESCAPE  &kp LS(A)        &caps_word_hold_tap S LS(S)  &kp LS(D)        &home_row_left_index LSHFT F  &kp LS(G)  &trans                    &exitcwkey LCTRL        &exitcwkey LALT      &exitcwkey LGUI       &exitcwkey RCTRL       &trans            &kp LS(H)  &home_row_right_index LSHIFT J  &kp LS(K)         &kp LS(L)                &exitcwkey SEMI           &exitcwkey SQT
-&kp LSHIFT         &kp LS(Z)        &kp LS(X)                    &kp LS(C)        &kp LS(V)                     &kp LS(B)                                                    &exitcwkey HOME      &exitcwkey PAGE_UP                                             &kp LS(N)  &kp LS(M)                       &exitcwkey COMMA  &exitcwkey PERIOD        &exitcwkey SLASH          &kp RSHFT
-&trans             &exitcwkey HOME  &exitcwkey END               &exitcwkey LEFT  &exitcwkey RIGHT                         &cwbackspace 1 BACKSPACE  &cwthumblayer 2 DELETE  &exitcwkey END       &exitcwkey PAGE_DOWN  &cwthumblayer 3 ENTER  &exitcwkey SPACE             &exitcwkey UP_ARROW             &exitcwkey DOWN   &exitcwkey LEFT_BRACKET  &exitcwkey RIGHT_BRACKET  &exitcwkey INS
+&exitcwkey EQUAL   &kp N1            &kp N2                       &kp N3           &kp N4                           &kp N5     &trans                                                                                                              &trans            &kp N6     &kp N7                            &kp N8            &kp N9                   &kp N0                    &caps_word_underscore MINUS LS(MINUS)
+&exitcwkey TAB     &kp LS(Q)         &kp LS(W)                    &kp LS(E)        &kp LS(R)                        &kp LS(T)  &trans                                                                                                              &trans            &kp LS(Y)  &kp LS(U)                         &kp LS(I)         &kp LS(O)                &kp LS(P)                 &exitcwkey BACKSLASH
+&exitcwkey ESCAPE  &kp LS(A)         &caps_word_hold_tap S LS(S)  &kp LS(D)        &home_row_left_index_cw 5 LS(F)  &kp LS(G)  &trans                    &exitcwkey LCTRL        &exitcwkey LALT      &exitcwkey LGUI       &exitcwkey RCTRL       &trans            &kp LS(H)  &home_row_right_index_cw 5 LS(J)  &kp LS(K)         &kp LS(L)                &exitcwkey SEMI           &exitcwkey SQT
+&caps_word_shift   &kp LS(Z)         &kp LS(X)                    &kp LS(C)        &kp LS(V)                        &kp LS(B)                                                    &exitcwkey HOME      &exitcwkey PAGE_UP                                             &kp LS(N)  &kp LS(M)                         &exitcwkey COMMA  &exitcwkey PERIOD        &exitcwkey SLASH          &caps_word_shift
+&trans             &exitcwkey GRAVE  &exitcwkey CAPSLOCK          &exitcwkey LEFT  &exitcwkey RIGHT                            &cwbackspace 1 BACKSPACE  &cwthumblayer 2 DELETE  &exitcwkey END       &exitcwkey PAGE_DOWN  &cwthumblayer 3 ENTER  &exitcwkey SPACE             &exitcwkey UP_ARROW               &exitcwkey DOWN   &exitcwkey LEFT_BRACKET  &exitcwkey RIGHT_BRACKET  &trans
+            >;
+        };
+
+        CapsWordShifted {
+            bindings = <
+&trans  &exitcwkey EXCLAMATION  &exitcwkey AT  &exitcwkey POUND  &exitcwkey DOLLAR  &exitcwkey PERCENT  &trans                                      &trans  &exitcwkey CARET  &exitcwkey AMPERSAND  &exitcwkey ASTERISK  &exitcwkey LEFT_PARENTHESIS  &exitcwkey RIGHT_PARENTHESIS  &kp UNDER
+&trans  &trans                  &trans         &trans            &trans             &trans              &trans                                      &trans  &trans            &trans                &trans               &trans                       &trans                        &trans
+&trans  &trans                  &kp LS(S)      &trans            &kp LS(F)          &trans              &trans  &trans  &trans      &trans  &trans  &trans  &trans            &trans                &trans               &trans                       &trans                        &trans
+&trans  &trans                  &trans         &trans            &trans             &trans                              &trans      &trans                  &trans            &trans                &trans               &trans                       &trans                        &trans
+&trans  &trans                  &trans         &trans            &trans                                 &trans  &trans  &trans      &trans  &trans  &trans                    &trans                &trans               &trans                       &trans                        &trans
             >;
         };
 
@@ -488,7 +441,7 @@
 &none  &none      &kp LC(W)     &kp LS(LC(TAB))  &kp LC(TAB)  &none              &trans                                  &trans  &none  &none  &none  &none  &none  &none
 &none  &kp LGUI   &kp LEFT_ALT  &kp LCTRL        &kp LSHFT    &alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &none  &none  &none  &none  &none  &none
 &none  &kp LC(Z)  &kp LC(X)     &kp LC(C)        &kp LC(V)    &browser_copy_url                 &none      &none                 &none  &none  &none  &none  &none  &none
-&none  &none      &none         &none            &none                           &tog 7  &none  &none      &none  &none  &none          &none  &none  &none  &none  &none
+&none  &none      &none         &none            &none                           &tog 8  &none  &none      &none  &none  &none          &none  &none  &none  &none  &none
             >;
         };
     };
