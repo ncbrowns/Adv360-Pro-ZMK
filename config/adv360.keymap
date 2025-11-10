@@ -145,6 +145,18 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67>;
         };
+
+        thumblayer_cw_continue: thumblayer_cw_continue {
+            compatible = "zmk,behavior-hold-tap";
+            label = "THUMBLAYER_CW_CONTINUE";
+            bindings = <&mo>, <&cw_tap_continue>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <2500>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <250>;
+            retro-tap;
+        };
     };
 
     macros {
@@ -201,6 +213,34 @@
 
             label = "AT_ENTER";
         };
+
+        cw_key_delete: cw_delete {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &thumblayer 4 DEL>;
+            label = "CW_DELETE";
+        };
+
+        cw_key_enter: cw_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &thumblayer 5 ENTER>;
+            label = "CW_ENTER";
+        };
+
+        cw_key_bs: cw_backspace {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &thumblayer_cw_continue 3 BACKSPACE>;
+            label = "CW_BACKSPACE";
+        };
+
+        cw_tap_continue: cw_tap_continue {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&tog 1 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "CW_TAP_CONTINUE";
+        };
     };
 
     keymap {
@@ -220,11 +260,11 @@
         CapsWord {
             display-name = "Base";
             bindings = <
-&cw_exitkey EQUAL  &kp N1             &kp N2                &kp N3            &kp N4                &kp N5     &trans                                                                                        &trans             &kp N6     &kp N7                &kp N8             &kp N9            &kp N0            &cw_underscrore MINUS UNDER
-&cw_exitkey TAB    &kp LS(Q)          &kp LS(W)             &kp LS(E)         &kp LS(R)             &kp LS(T)  &trans                                                                                        &trans             &kp LS(Y)  &kp LS(U)             &kp LS(I)          &kp LS(O)         &kp LS(P)         &cw_exitkey BSLH
-&cw_exitkey ESC    &kp LS(A)          &cw_hold_tap S LS(S)  &kp LS(D)         &hrmli_layer 2 LS(F)  &kp LS(G)  &trans         &cw_exitkey LCTRL  &cw_exitkey LALT      &cw_exitkey LGUI   &cw_exitkey RCTRL  &trans             &kp LS(H)  &hrmri_layer 2 LS(J)  &kp LS(K)          &kp LS(L)         &cw_exitkey SEMI  &cw_exitkey SQT
-&mo 2              &kp LS(Z)          &kp LS(X)             &kp LS(C)         &kp LS(V)             &kp LS(B)                                    &cw_exitkey HOME      &cw_exitkey PG_UP                                        &kp LS(N)  &kp LS(M)             &cw_exitkey COMMA  &cw_exitkey DOT   &cw_exitkey FSLH  &mo 2
-&none              &cw_exitkey GRAVE  &cw_exitkey CAPS      &cw_exitkey LEFT  &cw_exitkey RIGHT                &kp BACKSPACE  &cw_exitkey DEL    &cw_exitkey END       &cw_exitkey PG_DN  &cw_exitkey ENTER  &cw_exitkey SPACE             &cw_exitkey UP        &cw_exitkey DOWN   &cw_exitkey LBKT  &cw_exitkey RBKT  &none
+&cw_exitkey EQUAL  &kp N1             &kp N2                &kp N3            &kp N4                &kp N5     &trans                                                                                     &trans             &kp N6     &kp N7                &kp N8             &kp N9            &kp N0            &cw_underscrore MINUS UNDER
+&cw_exitkey TAB    &kp LS(Q)          &kp LS(W)             &kp LS(E)         &kp LS(R)             &kp LS(T)  &trans                                                                                     &trans             &kp LS(Y)  &kp LS(U)             &kp LS(I)          &kp LS(O)         &kp LS(P)         &cw_exitkey BSLH
+&cw_exitkey ESC    &kp LS(A)          &cw_hold_tap S LS(S)  &kp LS(D)         &hrmli_layer 2 LS(F)  &kp LS(G)  &trans      &cw_exitkey LCTRL  &cw_exitkey LALT      &cw_exitkey LGUI   &cw_exitkey RCTRL  &trans             &kp LS(H)  &hrmri_layer 2 LS(J)  &kp LS(K)          &kp LS(L)         &cw_exitkey SEMI  &cw_exitkey SQT
+&mo 2              &kp LS(Z)          &kp LS(X)             &kp LS(C)         &kp LS(V)             &kp LS(B)                                 &cw_exitkey HOME      &cw_exitkey PG_UP                                        &kp LS(N)  &kp LS(M)             &cw_exitkey COMMA  &cw_exitkey DOT   &cw_exitkey FSLH  &mo 2
+&none              &cw_exitkey GRAVE  &cw_exitkey CAPS      &cw_exitkey LEFT  &cw_exitkey RIGHT                &cw_key_bs  &cw_key_delete     &cw_exitkey END       &cw_exitkey PG_DN  &cw_key_enter      &cw_exitkey SPACE             &cw_exitkey UP        &cw_exitkey DOWN   &cw_exitkey LBKT  &cw_exitkey RBKT  &none
             >;
         };
 
