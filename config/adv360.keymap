@@ -84,6 +84,39 @@
             #binding-cells = <0>;
             bindings = <&kp C_PLAY_PAUSE>, <&kp LS(C_PLAY_PAUSE)>;
         };
+
+        td_shift_cw: td_shift_cw {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SHIFT_CW";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT>, <&tog 1>;
+        };
+
+        cw_hold_tap: cw_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CW_HOLD_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+        };
+
+        cw_underscrore: cw_underscrore {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CW_UNDERSCRORE";
+            bindings = <&cw_exitkey>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+        };
+
+        nav_alttab: nav_alttab {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NAV_ALTTAB";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            bindings = <&at_enter>, <&kp>;
+        };
     };
 
     macros {
@@ -112,6 +145,34 @@
             bindings = <&kp LA(D) &kp LC(C) &kp ESC &kp TAB>;
             label = "BROWSER_COPY_URL";
         };
+
+        cw_exitkey: cw_exitkey {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&tog 1 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "CW_EXITKEY";
+        };
+
+        at_exit: ts_exit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 7>, <&macro_release>, <&kp LALT>;
+
+            label = "TS_EXIT";
+        };
+
+        at_enter: at_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&tog 7>,
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp TAB>;
+
+            label = "AT_ENTER";
+        };
     };
 
     keymap {
@@ -120,21 +181,42 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp EQUAL  &kp N1        &kp N2        &kp N3         &kp N4           &kp N5  &mo 4                                                                                        &mo 4          &kp N6  &kp N7           &kp N8         &kp N9             &kp N0                &kp MINUS
-&kp TAB    &kp Q         &kp W         &kp E          &kp R            &kp T   &none                                                                                        &none          &kp Y   &kp U            &kp I          &kp O              &kp P                 &kp BSLH
-&kp ESC    &hrml LGUI A  &hrml LALT S  &hrml LCTRL D  &hrmli LSHIFT F  &kp G   &kp C_MUTE               &kp LCTRL             &kp LALT      &kp LGUI   &kp RCTRL            &td_playpause  &kp H   &hrmri RSHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RGUI SEMICOLON  &kp SQT
-&kp LSHFT  &kp Z         &kp X         &kp C          &kp V            &kp B                                                  &kp HOME      &kp PG_UP                                      &kp N   &kp M            &kp COMMA      &kp DOT            &kp FSLH              &kp RSHFT
-&none      &kp GRAVE     &kp CAPS      &kp LEFT       &kp RIGHT                &thumblayer 1 BACKSPACE  &thumblayer 2 DELETE  &kp END       &kp PG_DN  &thumblayer 3 ENTER  &kp SPACE              &kp UP           &kp DOWN       &kp LBKT           &kp RBKT              &none
+&kp EQUAL     &kp N1        &kp N2        &kp N3         &kp N4           &kp N5  &mo 6                                                                                        &mo 6          &kp N6  &kp N7           &kp N8         &kp N9             &kp N0                &kp MINUS
+&kp TAB       &kp Q         &kp W         &kp E          &kp R            &kp T   &none                                                                                        &none          &kp Y   &kp U            &kp I          &kp O              &kp P                 &kp BSLH
+&kp ESC       &hrml LGUI A  &hrml LALT S  &hrml LCTRL D  &hrmli LSHIFT F  &kp G   &kp C_MUTE               &kp LCTRL             &kp LALT      &kp LGUI   &kp RCTRL            &td_playpause  &kp H   &hrmri RSHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RGUI SEMICOLON  &kp SQT
+&td_shift_cw  &kp Z         &kp X         &kp C          &kp V            &kp B                                                  &kp HOME      &kp PG_UP                                      &kp N   &kp M            &kp COMMA      &kp DOT            &kp FSLH              &td_shift_cw
+&none         &kp GRAVE     &kp CAPS      &kp LEFT       &kp RIGHT                &thumblayer 3 BACKSPACE  &thumblayer 4 DELETE  &kp END       &kp PG_DN  &thumblayer 5 ENTER  &kp SPACE              &kp UP           &kp DOWN       &kp LBKT           &kp RBKT              &none
+            >;
+        };
+
+        CapsWord {
+            display-name = "Base";
+            bindings = <
+&cw_exitkey EQUAL  &kp N1             &kp N2                &kp N3            &kp N4             &kp N5     &trans                                                                                         &trans             &kp N6     &kp N7          &kp N8             &kp N9            &kp N0            &cw_underscrore MINUS UNDER
+&cw_exitkey TAB    &kp LS(Q)          &kp LS(W)             &kp LS(E)         &kp LS(R)          &kp LS(T)  &trans                                                                                         &trans             &kp LS(Y)  &kp LS(U)       &kp LS(I)          &kp LS(O)         &kp LS(P)         &cw_exitkey BSLH
+&cw_exitkey ESC    &kp LS(A)          &cw_hold_tap S LS(S)  &kp LS(D)         &kp LS(F)          &kp LS(G)  &trans         &cw_exitkey LCTRL   &cw_exitkey LALT      &cw_exitkey LGUI   &cw_exitkey RCTRL  &trans             &kp LS(H)  &kp LS(J)       &kp LS(K)          &kp LS(L)         &cw_exitkey SEMI  &cw_exitkey SQT
+&mo 2              &kp LS(Z)          &kp LS(X)             &kp LS(C)         &kp LS(V)          &kp LS(B)                                     &cw_exitkey HOME      &cw_exitkey PG_UP                                        &kp LS(N)  &kp LS(M)       &cw_exitkey COMMA  &cw_exitkey DOT   &cw_exitkey FSLH  &mo 2
+&none              &cw_exitkey GRAVE  &cw_exitkey CAPS      &cw_exitkey LEFT  &cw_exitkey RIGHT             &kp BACKSPACE  &cw_exitkey DELETE  &cw_exitkey END       &cw_exitkey PG_DN  &cw_exitkey ENTER  &cw_exitkey SPACE             &cw_exitkey UP  &cw_exitkey DOWN   &cw_exitkey LBKT  &cw_exitkey RBKT  &none
+            >;
+        };
+
+        CapsWordShifted {
+            bindings = <
+&trans  &cw_exitkey N1  &cw_exitkey N2  &cw_exitkey N3  &cw_exitkey N4  &cw_exitkey N5  &trans                                      &trans  &cw_exitkey N6  &cw_exitkey N7  &cw_exitkey N8  &cw_exitkey N9  &cw_exitkey N0  &trans
+&trans  &trans          &trans          &trans          &trans          &trans          &trans                                      &trans  &trans          &trans          &trans          &trans          &trans          &trans
+&trans  &trans          &trans          &trans          &trans          &trans          &trans  &trans  &trans      &trans  &trans  &trans  &trans          &trans          &trans          &trans          &trans          &trans
+&trans  &trans          &trans          &trans          &trans          &trans                          &trans      &trans                  &trans          &trans          &trans          &trans          &trans          &trans
+&trans  &trans          &trans          &trans          &trans                          &trans  &trans  &trans      &trans  &trans  &trans                  &trans          &trans          &trans          &trans          &trans
             >;
         };
 
         Navigation {
             bindings = <
-&none       &kp LA(LC(F1))  &kp LA(LC(F2))  &kp LA(LC(F3))   &none        &none              &trans                                  &trans  &kp TILDE  &kp INS            &none         &none       &none           &none
-&none       &none           &kp LC(W)       &kp LC(LS(TAB))  &kp LC(TAB)  &none              &trans                                  &trans  &kp HOME   &kp PAGE_DOWN      &kp PAGE_UP   &kp END     &thanks_pat     &kp LG(LA(K))
-&none       &kp LGUI        &kp LEFT_ALT    &kp LCTRL        &kp LSHFT    &kp LA(TAB)        &trans  &none  &none      &none  &none  &trans  &kp LEFT   &kp DOWN           &kp UP        &kp RIGHT   &kp GRAVE       &kp LC(PAUSE_BREAK)
-&kp LSHIFT  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)    &browser_copy_url                 &none      &none                 &none      &none              &none         &none       &triple_bquote  &kp RSHIFT
-&none       &none           &none           &kp C_PREV       &kp C_NEXT                      &none   &none  &none      &none  &none  &none              &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &none           &none
+&none       &kp LA(LC(F1))  &kp LA(LC(F2))  &kp LA(LC(F3))   &none        &none                  &trans                                  &trans  &kp TILDE  &kp INS            &none         &none       &none           &none
+&none       &none           &kp LC(W)       &kp LC(LS(TAB))  &kp LC(TAB)  &none                  &trans                                  &trans  &kp HOME   &kp PAGE_DOWN      &kp PAGE_UP   &kp END     &thanks_pat     &kp LG(LA(K))
+&none       &kp LGUI        &kp LEFT_ALT    &kp LCTRL        &kp LSHFT    &nav_alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &kp LEFT   &kp DOWN           &kp UP        &kp RIGHT   &kp GRAVE       &kp LC(PAUSE_BREAK)
+&kp LSHIFT  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)    &browser_copy_url                     &none      &none                 &none      &none              &none         &none       &triple_bquote  &kp RSHIFT
+&none       &none           &none           &kp C_PREV       &kp C_NEXT                          &none   &none  &none      &none  &none  &none              &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &none           &none
             >;
         };
 
@@ -158,14 +240,24 @@
             >;
         };
 
-        mod {
-            display-name = "System";
+        System {
+            display-name = "mod";
             bindings = <
 &none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans           &none  &none       &none       &none  &none  &none
 &none           &none         &none         &none         &none         &none         &bootloader                                            &bootloader      &none  &none       &none       &none  &none  &none
 &studio_unlock  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &none            &none  &none       &none       &none  &none  &none
 &none           &none         &none         &none         &none         &none                             &none      &none                                    &none  &none       &none       &none  &none  &none
 &none           &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG         &bl BL_INC  &bl BL_DEC  &none  &none  &none
+            >;
+        };
+
+        TabSwitcher {
+            bindings = <
+&none     &none  &none  &none     &none      &none  &none                                           &none     &none     &none     &none     &none      &none  &none
+&none     &none  &none  &none     &none      &none  &none                                           &none     &kp HOME  &none     &none     &kp END    &none  &none
+&at_exit  &none  &none  &none     &none      &none  &none     &none     &none      &none  &none     &none     &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &none  &none
+&none     &none  &none  &none     &none      &none                      &none      &none                      &none     &none     &none     &none      &none  &none
+&none     &none  &none  &kp LEFT  &kp RIGHT         &at_exit  &at_exit  &none      &none  &at_exit  &at_exit            &kp UP    &kp DOWN  &none      &none  &none
             >;
         };
     };
