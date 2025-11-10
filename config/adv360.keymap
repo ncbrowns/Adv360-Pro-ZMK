@@ -69,7 +69,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS";
             #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&tog 4>;
+            bindings = <&kp LSHIFT>, <&tog 1>;
         };
 
         caps_word_hold_tap: caps_word_hold_tap {
@@ -205,7 +205,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "CAPS_WORD_SHIFT";
             #binding-cells = <0>;
-            bindings = <&mo 5>, <&tog 4>;
+            bindings = <&mo 2>, <&tog 1>;
         };
     };
 
@@ -265,7 +265,7 @@
         exitcwkey: exitcwkey {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&tog 4 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            bindings = <&tog 1 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "EXITCWKEY";
         };
 
@@ -279,7 +279,7 @@
         exitcwlayer: exitcwmod {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&tog 4 &macro_param_1to1 &mo MACRO_PLACEHOLDER>;
+            bindings = <&tog 1 &macro_param_1to1 &mo MACRO_PLACEHOLDER>;
             label = "EXITCWMOD";
         };
 
@@ -316,7 +316,27 @@
 &kp TAB      &kp Q                  &kp W                  &kp E                   &kp R                         &kp T   &kp C_PLAY_PAUSE                                                                                    &none       &kp Y   &kp U                          &kp I                    &kp O                   &kp P                      &kp BSLH
 &kp ESC      &home_row_left LGUI A  &home_row_left LALT S  &home_row_left LCTRL D  &home_row_left_index LSHFT F  &kp G   &kp C_MUTE                &tog 8                 &kp LALT      &kp LGUI       &kp RCTRL             &playpause  &kp H   &home_row_right_index RSHFT J  &home_row_right RCTRL K  &home_row_right RALT L  &home_row_right RGUI SEMI  &kp SQT
 &shift_caps  &kp Z                  &kp X                  &kp C                   &kp V                         &kp B                                                    &kp HOME      &kp PAGE_UP                                      &kp N   &kp M                          &kp COMMA                &kp DOT                 &kp FSLH                   &shift_caps
-&kp LCTRL    &kp GRAVE              &kp CAPSLOCK           &kp LEFT                &kp RIGHT                             &thumb_layer 1 BACKSPACE  &thumb_layer 2 DELETE  &kp END       &kp PAGE_DOWN  &thumb_layer 3 ENTER  &kp SPACE           &kp UP                         &kp DOWN                 &kp LBKT                &kp RBKT                   &kp LCTRL
+&kp LCTRL    &kp GRAVE              &kp CAPSLOCK           &kp LEFT                &kp RIGHT                             &thumb_layer 3 BACKSPACE  &thumb_layer 4 DELETE  &kp END       &kp PAGE_DOWN  &thumb_layer 5 ENTER  &kp SPACE           &kp UP                         &kp DOWN                 &kp LBKT                &kp RBKT                   &kp LCTRL
+            >;
+        };
+
+        CapsWord {
+            bindings = <
+&exitcwkey EQUAL   &kp N1            &kp N2                       &kp N3           &kp N4                           &kp N5     &trans                                                                                                              &trans            &kp N6     &kp N7                            &kp N8            &kp N9                   &kp N0                    &caps_word_underscore MINUS LS(MINUS)
+&exitcwkey TAB     &kp LS(Q)         &kp LS(W)                    &kp LS(E)        &kp LS(R)                        &kp LS(T)  &trans                                                                                                              &trans            &kp LS(Y)  &kp LS(U)                         &kp LS(I)         &kp LS(O)                &kp LS(P)                 &exitcwkey BACKSLASH
+&exitcwkey ESCAPE  &kp LS(A)         &caps_word_hold_tap S LS(S)  &kp LS(D)        &home_row_left_index_cw 2 LS(F)  &kp LS(G)  &trans                    &exitcwkey LCTRL        &exitcwkey LALT      &exitcwkey LGUI       &exitcwkey RCTRL       &trans            &kp LS(H)  &home_row_right_index_cw 2 LS(J)  &kp LS(K)         &kp LS(L)                &exitcwkey SEMI           &exitcwkey SQT
+&caps_word_shift   &kp LS(Z)         &kp LS(X)                    &kp LS(C)        &kp LS(V)                        &kp LS(B)                                                    &exitcwkey HOME      &exitcwkey PAGE_UP                                             &kp LS(N)  &kp LS(M)                         &exitcwkey COMMA  &exitcwkey PERIOD        &exitcwkey SLASH          &caps_word_shift
+&trans             &exitcwkey GRAVE  &exitcwkey CAPSLOCK          &exitcwkey LEFT  &exitcwkey RIGHT                            &cwbackspace 3 BACKSPACE  &cwthumblayer 4 DELETE  &exitcwkey END       &exitcwkey PAGE_DOWN  &cwthumblayer 5 ENTER  &exitcwkey SPACE             &exitcwkey UP_ARROW               &exitcwkey DOWN   &exitcwkey LEFT_BRACKET  &exitcwkey RIGHT_BRACKET  &trans
+            >;
+        };
+
+        CapsWordShifted {
+            bindings = <
+&trans  &exitcwkey EXCLAMATION  &exitcwkey AT  &exitcwkey POUND  &exitcwkey DOLLAR  &exitcwkey PERCENT  &trans                                      &trans  &exitcwkey CARET  &exitcwkey AMPERSAND  &exitcwkey ASTERISK  &exitcwkey LEFT_PARENTHESIS  &exitcwkey RIGHT_PARENTHESIS  &kp UNDER
+&trans  &trans                  &trans         &trans            &trans             &trans              &trans                                      &trans  &trans            &trans                &trans               &trans                       &trans                        &trans
+&trans  &trans                  &kp LS(S)      &trans            &kp LS(F)          &trans              &trans  &trans  &trans      &trans  &trans  &trans  &trans            &trans                &trans               &trans                       &trans                        &trans
+&trans  &trans                  &trans         &trans            &trans             &trans                              &trans      &trans                  &trans            &trans                &trans               &trans                       &trans                        &trans
+&trans  &trans                  &trans         &trans            &trans                                 &trans  &trans  &trans      &trans  &trans  &trans                    &trans                &trans               &trans                       &trans                        &trans
             >;
         };
 
@@ -347,26 +367,6 @@
 &none  &none  &none  &kp LBRC          &kp RBRC           &none  &trans  &none  &none      &none  &none  &trans  &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI  &none
 &none  &none  &none  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none                 &none      &none                 &none  &none      &none      &none     &none     &none
 &none  &none  &none  &none             &none                     &none   &none  &none      &none  &none  &none          &none      &none      &none     &none     &none
-            >;
-        };
-
-        CapsWord {
-            bindings = <
-&exitcwkey EQUAL   &kp N1            &kp N2                       &kp N3           &kp N4                           &kp N5     &trans                                                                                                              &trans            &kp N6     &kp N7                            &kp N8            &kp N9                   &kp N0                    &caps_word_underscore MINUS LS(MINUS)
-&exitcwkey TAB     &kp LS(Q)         &kp LS(W)                    &kp LS(E)        &kp LS(R)                        &kp LS(T)  &trans                                                                                                              &trans            &kp LS(Y)  &kp LS(U)                         &kp LS(I)         &kp LS(O)                &kp LS(P)                 &exitcwkey BACKSLASH
-&exitcwkey ESCAPE  &kp LS(A)         &caps_word_hold_tap S LS(S)  &kp LS(D)        &home_row_left_index_cw 5 LS(F)  &kp LS(G)  &trans                    &exitcwkey LCTRL        &exitcwkey LALT      &exitcwkey LGUI       &exitcwkey RCTRL       &trans            &kp LS(H)  &home_row_right_index_cw 5 LS(J)  &kp LS(K)         &kp LS(L)                &exitcwkey SEMI           &exitcwkey SQT
-&caps_word_shift   &kp LS(Z)         &kp LS(X)                    &kp LS(C)        &kp LS(V)                        &kp LS(B)                                                    &exitcwkey HOME      &exitcwkey PAGE_UP                                             &kp LS(N)  &kp LS(M)                         &exitcwkey COMMA  &exitcwkey PERIOD        &exitcwkey SLASH          &caps_word_shift
-&trans             &exitcwkey GRAVE  &exitcwkey CAPSLOCK          &exitcwkey LEFT  &exitcwkey RIGHT                            &cwbackspace 1 BACKSPACE  &cwthumblayer 2 DELETE  &exitcwkey END       &exitcwkey PAGE_DOWN  &cwthumblayer 3 ENTER  &exitcwkey SPACE             &exitcwkey UP_ARROW               &exitcwkey DOWN   &exitcwkey LEFT_BRACKET  &exitcwkey RIGHT_BRACKET  &trans
-            >;
-        };
-
-        CapsWordShifted {
-            bindings = <
-&trans  &exitcwkey EXCLAMATION  &exitcwkey AT  &exitcwkey POUND  &exitcwkey DOLLAR  &exitcwkey PERCENT  &trans                                      &trans  &exitcwkey CARET  &exitcwkey AMPERSAND  &exitcwkey ASTERISK  &exitcwkey LEFT_PARENTHESIS  &exitcwkey RIGHT_PARENTHESIS  &kp UNDER
-&trans  &trans                  &trans         &trans            &trans             &trans              &trans                                      &trans  &trans            &trans                &trans               &trans                       &trans                        &trans
-&trans  &trans                  &kp LS(S)      &trans            &kp LS(F)          &trans              &trans  &trans  &trans      &trans  &trans  &trans  &trans            &trans                &trans               &trans                       &trans                        &trans
-&trans  &trans                  &trans         &trans            &trans             &trans                              &trans      &trans                  &trans            &trans                &trans               &trans                       &trans                        &trans
-&trans  &trans                  &trans         &trans            &trans                                 &trans  &trans  &trans      &trans  &trans  &trans                    &trans                &trans               &trans                       &trans                        &trans
             >;
         };
 
