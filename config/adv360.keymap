@@ -146,10 +146,34 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 46 47 48 49 50 51 52 60 61 62 63 64 65 66 67>;
         };
 
-        thumblayer_cw_continue: thumblayer_cw_continue {
+        cw_bs: cw_bs {
             compatible = "zmk,behavior-hold-tap";
-            label = "THUMBLAYER_CW_CONTINUE";
-            bindings = <&mo>, <&cw_tap_continue>;
+            label = "CW_BS";
+            bindings = <&cw_hold_bs>, <&cw_tap_bs>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <2500>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <250>;
+            retro-tap;
+        };
+
+        cw_del: cw_del {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CW_DEL";
+            bindings = <&cw_hold_del>, <&cw_tap_del>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <2500>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <250>;
+            retro-tap;
+        };
+
+        cw_enter: cw_enter {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CW_ENTER";
+            bindings = <&cw_hold_enter>, <&cw_tap_enter>;
 
             #binding-cells = <2>;
             tapping-term-ms = <2500>;
@@ -214,32 +238,46 @@
             label = "AT_ENTER";
         };
 
-        cw_key_delete: cw_delete {
+        cw_tap_bs: cw_tap_bs {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&thumblayer 4 DEL &tog 1>;
-            label = "CW_DELETE";
+            bindings = <&kp BACKSPACE>;
+            label = "CW_TAP_BS";
         };
 
-        cw_key_enter: cw_enter {
+        cw_hold_bs: cw_hold_bs {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&thumblayer 5 ENTER &tog 1>;
-            label = "CW_ENTER";
+            bindings = <&tog 1 &mo 3>;
+            label = "CW_HOLD_BS";
         };
 
-        cw_key_bs: cw_backspace {
+        cw_tap_del: cw_tap_del {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&thumblayer_cw_continue 3 BACKSPACE &tog 1>;
-            label = "CW_BACKSPACE";
+            bindings = <&tog 1 &kp DELETE>;
+            label = "CW_TAP_DEL";
         };
 
-        cw_tap_continue: cw_tap_continue {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&tog 1 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "CW_TAP_CONTINUE";
+        cw_hold_del: cw_hold_del {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &mo 4>;
+            label = "CW_HOLD_DEL";
+        };
+
+        cw_tap_enter: cw_tap_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &kp ENTER>;
+            label = "CW_TAP_ENTER";
+        };
+
+        cw_hold_enter: cw_hold_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 1 &mo 5>;
+            label = "CW_HOLD_ENTER";
         };
     };
 
@@ -264,7 +302,7 @@
 &cw_exitkey TAB    &kp LS(Q)          &kp LS(W)             &kp LS(E)         &kp LS(R)             &kp LS(T)  &trans                                                                                     &trans             &kp LS(Y)  &kp LS(U)             &kp LS(I)          &kp LS(O)         &kp LS(P)         &cw_exitkey BSLH
 &cw_exitkey ESC    &kp LS(A)          &cw_hold_tap S LS(S)  &kp LS(D)         &hrmli_layer 2 LS(F)  &kp LS(G)  &trans      &cw_exitkey LCTRL  &cw_exitkey LALT      &cw_exitkey LGUI   &cw_exitkey RCTRL  &trans             &kp LS(H)  &hrmri_layer 2 LS(J)  &kp LS(K)          &kp LS(L)         &cw_exitkey SEMI  &cw_exitkey SQT
 &mo 2              &kp LS(Z)          &kp LS(X)             &kp LS(C)         &kp LS(V)             &kp LS(B)                                 &cw_exitkey HOME      &cw_exitkey PG_UP                                        &kp LS(N)  &kp LS(M)             &cw_exitkey COMMA  &cw_exitkey DOT   &cw_exitkey FSLH  &mo 2
-&none              &cw_exitkey GRAVE  &cw_exitkey CAPS      &cw_exitkey LEFT  &cw_exitkey RIGHT                &cw_key_bs  &cw_key_delete     &cw_exitkey END       &cw_exitkey PG_DN  &cw_key_enter      &cw_exitkey SPACE             &cw_exitkey UP        &cw_exitkey DOWN   &cw_exitkey LBKT  &cw_exitkey RBKT  &none
+&none              &cw_exitkey GRAVE  &cw_exitkey CAPS      &cw_exitkey LEFT  &cw_exitkey RIGHT                &cw_bs 0 0  &cw_del 0 0        &cw_exitkey END       &cw_exitkey PG_DN  &cw_enter 0 0      &cw_exitkey SPACE             &cw_exitkey UP        &cw_exitkey DOWN   &cw_exitkey LBKT  &cw_exitkey RBKT  &none
             >;
         };
 
