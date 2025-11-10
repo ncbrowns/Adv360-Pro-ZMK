@@ -69,7 +69,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS";
             #binding-cells = <0>;
-            bindings = <&kp LSHIFT>, <&flash_toggle_layer 4>;
+            bindings = <&kp LSHIFT>, <&tog 4>;
         };
 
         caps_word_hold_tap: caps_word_hold_tap {
