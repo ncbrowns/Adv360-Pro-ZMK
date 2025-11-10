@@ -217,21 +217,21 @@
         cw_key_delete: cw_delete {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &thumblayer 4 DEL>;
+            bindings = <&thumblayer 4 DEL &tog 1>;
             label = "CW_DELETE";
         };
 
         cw_key_enter: cw_enter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &thumblayer 5 ENTER>;
+            bindings = <&thumblayer 5 ENTER &tog 1>;
             label = "CW_ENTER";
         };
 
         cw_key_bs: cw_backspace {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &thumblayer_cw_continue 3 BACKSPACE>;
+            bindings = <&thumblayer_cw_continue 3 BACKSPACE &tog 1>;
             label = "CW_BACKSPACE";
         };
 
