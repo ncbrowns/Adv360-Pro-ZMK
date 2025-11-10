@@ -9,15 +9,6 @@
         #include "macros.dtsi"
         #include "version.dtsi"
 
-        magic: magic_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&rgb_ug_status_macro>;
-        };
-
         home_row_left: home_row_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_ROW_LEFT";
@@ -219,13 +210,6 @@
     };
 
     macros {
-        rgb_ug_status_macro: rgb_ug_status_macro_0 {
-            label = "RGB_UG_STATUS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
         bt_0: bt_profile_macro_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
@@ -281,7 +265,7 @@
         exitcwkey: exitcwkey {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &flash_toggle_layer 4>;
+            bindings = <&tog 4 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "EXITCWKEY";
         };
 
@@ -292,35 +276,22 @@
             label = "ARROW";
         };
 
-        flash_toggle_layer: flash_toggle_layer {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&rgb_ug_status_macro &macro_param_1to1 &tog MACRO_PLACEHOLDER>;
-            label = "FLASH_TOGGLE_LAYER";
-        };
-
         exitcwlayer: exitcwmod {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &mo MACRO_PLACEHOLDER &flash_toggle_layer 4>;
+            bindings = <&tog 4 &macro_param_1to1 &mo MACRO_PLACEHOLDER>;
             label = "EXITCWMOD";
-        };
-
-        exitcwmagic: exitcwmagic {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&flash_toggle_layer 4 &macro_param_1to1 &magic MACRO_PLACEHOLDER 0>;
-            label = "EXITCWMAGIC";
         };
 
         enterat: enteralttab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
+                <&tog 7>,
                 <&macro_press>,
                 <&kp LALT>,
                 <&macro_tap>,
-                <&kp TAB &flash_toggle_layer 7>;
+                <&kp TAB>;
 
             label = "ENTERALTTAB";
         };
@@ -328,25 +299,9 @@
         exittab: exitalttab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_release>,
-                <&kp LALT &kp LCTRL>,
-                <&macro_tap>,
-                <&flash_toggle_layer 7>;
+            bindings = <&tog 7>, <&macro_release>, <&kp LALT>, <&macro_tap>;
 
             label = "EXITALTTAB";
-        };
-
-        enterct: enterct {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &flash_toggle_layer 7>;
-
-            label = "ENTERCT";
         };
     };
 
