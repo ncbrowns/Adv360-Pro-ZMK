@@ -248,7 +248,8 @@
         cw_hold_bs: cw_hold_bs {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &mo 3>;
+            bindings = <&mo 3>, <&macro_pause_for_release>, <&tog 1>;
+
             label = "CW_HOLD_BS";
         };
 
@@ -262,7 +263,8 @@
         cw_hold_del: cw_hold_del {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &mo 4>;
+            bindings = <&mo 4>, <&macro_pause_for_release>, <&tog 1>;
+
             label = "CW_HOLD_DEL";
         };
 
@@ -276,7 +278,8 @@
         cw_hold_enter: cw_hold_enter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog 1 &mo 5>;
+            bindings = <&mo 5>, <&macro_pause_for_release>, <&tog 1>;
+
             label = "CW_HOLD_ENTER";
         };
     };
