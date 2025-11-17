@@ -238,27 +238,6 @@
             label = "CW_EXITKEY";
         };
 
-        at_exit: ts_exit {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&tog 8>, <&macro_release>, <&kp LALT>;
-
-            label = "TS_EXIT";
-        };
-
-        at_enter: at_enter {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&tog 8>,
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp TAB>;
-
-            label = "AT_ENTER";
-        };
-
         cw_tap_bs: cw_tap_bs {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -318,6 +297,22 @@
                 <&kp LSHFT &kp LCTRL>;
 
             label = "CTRL_SHIFT_TAB";
+        };
+
+        at_enter: at_enter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&tog 8>,
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LALT &tog 8>;
+
+            label = "AT_ENTER";
         };
     };
 
@@ -417,11 +412,11 @@
 
         TabSwitcher {
             bindings = <
-&none     &none  &none  &none     &none      &none  &trans                                          &trans    &none     &none     &none     &none      &none  &none
-&none     &none  &none  &none     &none      &none  &trans                                          &trans    &kp HOME  &none     &none     &kp END    &none  &none
-&at_exit  &none  &none  &none     &none      &none  &trans    &none     &none      &none  &none     &trans    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &none  &none
-&none     &none  &none  &none     &none      &none                      &none      &none                      &none     &none     &none     &none      &none  &none
-&none     &none  &none  &kp LEFT  &kp RIGHT         &at_exit  &at_exit  &none      &none  &at_exit  &at_exit            &kp UP    &kp DOWN  &none      &none  &none
+&none  &none  &none  &none     &none      &none  &trans                                  &trans  &none     &none     &none     &none      &none  &none
+&none  &none  &none  &none     &none      &none  &trans                                  &trans  &kp HOME  &none     &none     &kp END    &none  &none
+&none  &none  &none  &none     &none      &none  &trans  &none  &none      &none  &none  &trans  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &none  &none
+&none  &none  &none  &none     &none      &none                 &none      &none                 &none     &none     &none     &none      &none  &none
+&none  &none  &none  &kp LEFT  &kp RIGHT         &none   &none  &none      &none  &none  &none             &kp UP    &kp DOWN  &none      &none  &none
             >;
 
             label = "TabSwitcher";
