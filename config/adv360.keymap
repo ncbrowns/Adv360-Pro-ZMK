@@ -303,13 +303,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&tog 8>,
+                <&mo 8>,
                 <&macro_press>,
                 <&kp LALT>,
                 <&macro_tap>,
                 <&kp TAB>,
                 <&macro_pause_for_release>,
-                <&tog 8>,
                 <&macro_release>,
                 <&kp LALT>;
 
