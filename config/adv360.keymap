@@ -87,9 +87,9 @@
             bindings = <&kp C_PLAY_PAUSE>, <&kp LS(C_PLAY_PAUSE)>;
         };
 
-        td_shift_cw: td_shift_cw {
+        td_shift: td_shift {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_SHIFT_CW";
+            label = "TD_SHIFT";
             #binding-cells = <0>;
             bindings = <&kp LSHIFT>, <&tog 2>;
         };
@@ -100,7 +100,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <400>;
         };
 
         cw_minus: cw_minus {
@@ -109,7 +109,7 @@
             bindings = <&cw_exitkey>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <400>;
         };
 
         nav_alttab: nav_alttab {
@@ -160,30 +160,6 @@
             retro-tap;
         };
 
-        cw_del: cw_del {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CW_DEL";
-            bindings = <&cw_hold_del>, <&cw_tap_del>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <2500>;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <250>;
-            retro-tap;
-        };
-
-        cw_enter: cw_enter {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CW_ENTER";
-            bindings = <&cw_hold_enter>, <&cw_tap_enter>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <2500>;
-            quick-tap-ms = <300>;
-            require-prior-idle-ms = <250>;
-            retro-tap;
-        };
-
         toggle_off: toggle_off {
             compatible = "zmk,behavior-toggle-layer";
             label = "TOGGLE_OFF";
@@ -197,9 +173,9 @@
             #binding-cells = <1>;
         };
 
-        cw_shift: cw_shift {
+        td_cw_shift: td_cw_shift {
             compatible = "zmk,behavior-tap-dance";
-            label = "CW_SHIFT";
+            label = "TD_CW_SHIFT";
             #binding-cells = <0>;
             bindings = <&mo 3>, <&tog 2>;
         };
@@ -286,11 +262,11 @@
         Base {
             display-name = "Base";
             bindings = <
-&kp EQUAL     &kp N1        &kp N2        &kp N3         &kp N4           &kp N5  &mo 7                                                                                        &mo 7          &kp N6  &kp N7           &kp N8         &kp N9             &kp N0                &kp MINUS
-&kp TAB       &kp Q         &kp W         &kp E          &kp R            &kp T   &none                                                                                        &none          &kp Y   &kp U            &kp I          &kp O              &kp P                 &kp BSLH
-&kp ESC       &hrml LGUI A  &hrml LALT S  &hrml LCTRL D  &hrmli LSHIFT F  &kp G   &kp C_MUTE               &tog 9                &kp LALT      &kp LGUI   &kp RCTRL            &td_playpause  &kp H   &hrmri RSHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RGUI SEMICOLON  &kp SQT
-&td_shift_cw  &kp Z         &kp X         &kp C          &kp V            &kp B                                                  &kp HOME      &kp PG_UP                                      &kp N   &kp M            &kp COMMA      &kp DOT            &kp FSLH              &td_shift_cw
-&none         &kp GRAVE     &kp CAPS      &kp LEFT       &kp RIGHT                &thumblayer 4 BACKSPACE  &thumblayer 5 DELETE  &kp END       &kp PG_DN  &thumblayer 6 ENTER  &kp SPACE              &kp UP           &kp DOWN       &kp LBKT           &kp RBKT              &none
+&kp EQUAL  &kp N1        &kp N2        &kp N3         &kp N4           &kp N5  &mo 7                                                                                        &mo 7          &kp N6  &kp N7           &kp N8         &kp N9             &kp N0                &kp MINUS
+&kp TAB    &kp Q         &kp W         &kp E          &kp R            &kp T   &none                                                                                        &none          &kp Y   &kp U            &kp I          &kp O              &kp P                 &kp BSLH
+&kp ESC    &hrml LGUI A  &hrml LALT S  &hrml LCTRL D  &hrmli LSHIFT F  &kp G   &kp C_MUTE               &tog 9                &kp LALT      &kp LGUI   &kp RCTRL            &td_playpause  &kp H   &hrmri RSHIFT J  &hrmr RCTRL K  &hrmr RIGHT_ALT L  &hrmr RGUI SEMICOLON  &kp SQT
+&td_shift  &kp Z         &kp X         &kp C          &kp V            &kp B                                                  &kp HOME      &kp PG_UP                                      &kp N   &kp M            &kp COMMA      &kp DOT            &kp FSLH              &td_shift
+&none      &kp GRAVE     &kp CAPS      &kp LEFT       &kp RIGHT                &thumblayer 4 BACKSPACE  &thumblayer 5 DELETE  &kp END       &kp PG_DN  &thumblayer 6 ENTER  &kp SPACE              &kp UP           &kp DOWN       &kp LBKT           &kp RBKT              &none
             >;
         };
 
@@ -310,7 +286,7 @@
 &cw_exitkey EQUAL  &kp N1             &kp N2                &kp N3            &kp N4                &kp N5     &trans                                                                                                             &trans             &kp N6     &kp N7                &kp N8             &kp N9            &kp N0            &cw_minus MINUS UNDER
 &cw_exitkey TAB    &kp LS(Q)          &kp LS(W)             &kp LS(E)         &kp LS(R)             &kp LS(T)  &trans                                                                                                             &trans             &kp LS(Y)  &kp LS(U)             &kp LS(I)          &kp LS(O)         &kp LS(P)         &cw_exitkey BSLH
 &cw_exitkey ESC    &kp LS(A)          &cw_hold_tap S LS(S)  &kp LS(D)         &hrmli_layer 3 LS(F)  &kp LS(G)  &trans              &cw_exitkey LCTRL         &cw_exitkey LALT      &cw_exitkey LGUI   &cw_exitkey RCTRL           &trans             &kp LS(H)  &hrmri_layer 3 LS(J)  &kp LS(K)          &kp LS(L)         &cw_exitkey SEMI  &cw_exitkey SQT
-&cw_shift          &kp LS(Z)          &kp LS(X)             &kp LS(C)         &kp LS(V)             &kp LS(B)                                                &cw_exitkey HOME      &cw_exitkey PG_UP                                                 &kp LS(N)  &kp LS(M)             &cw_exitkey COMMA  &cw_exitkey DOT   &cw_exitkey FSLH  &cw_shift
+&td_cw_shift       &kp LS(Z)          &kp LS(X)             &kp LS(C)         &kp LS(V)             &kp LS(B)                                                &cw_exitkey HOME      &cw_exitkey PG_UP                                                 &kp LS(N)  &kp LS(M)             &cw_exitkey COMMA  &cw_exitkey DOT   &cw_exitkey FSLH  &td_cw_shift
 &none              &cw_exitkey GRAVE  &cw_exitkey CAPS      &cw_exitkey LEFT  &cw_exitkey RIGHT                &cw_bs 4 BACKSPACE  &cw_exitkeyorlayer 5 DEL  &cw_exitkey END       &cw_exitkey PG_DN  &cw_exitkeyorlayer 6 ENTER  &cw_exitkey SPACE             &cw_exitkey UP        &cw_exitkey DOWN   &cw_exitkey LBKT  &cw_exitkey RBKT  &none
             >;
         };
