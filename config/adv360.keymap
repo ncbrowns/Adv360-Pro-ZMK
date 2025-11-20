@@ -321,8 +321,8 @@
 
         Navigation {
             bindings = <
-&none       &kp LA(LC(F1))  &kp LA(LC(F2))  &kp LA(LC(F3))   &none        &kp F5                 &trans                                  &trans  &kp TILDE  &kp INS            &none         &none       &none           &none
-&none       &none           &kp LC(W)       &ctrl_shift_tab  &kp LC(TAB)  &none                  &trans                                  &trans  &kp HOME   &kp PAGE_DOWN      &kp PAGE_UP   &kp END     &thanks_pat     &kp LG(LA(K))
+&none       &kp LA(LC(F1))  &kp LA(LC(F2))  &kp LA(LC(F3))   &none        &none                  &trans                                  &trans  &kp TILDE  &kp INS            &none         &none       &none           &none
+&none       &none           &kp LC(W)       &ctrl_shift_tab  &kp LC(TAB)  &kp F5                 &trans                                  &trans  &kp HOME   &kp PAGE_DOWN      &kp PAGE_UP   &kp END     &thanks_pat     &kp LG(LA(K))
 &none       &kp LGUI        &kp LEFT_ALT    &kp LCTRL        &kp LSHFT    &nav_alttab 0 LA(TAB)  &trans  &none  &none      &none  &none  &trans  &kp LEFT   &kp DOWN           &kp UP        &kp RIGHT   &kp GRAVE       &kp LC(PAUSE_BREAK)
 &kp LSHIFT  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)    &browser_copy_url                     &none      &none                 &none      &none              &none         &none       &triple_bquote  &kp RSHIFT
 &none       &none           &none           &kp C_PREV       &kp C_NEXT                          &none   &none  &none      &none  &none  &none              &kp C_VOLUME_DOWN  &kp C_VOL_UP  &kp C_MUTE  &none           &none
