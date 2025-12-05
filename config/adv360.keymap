@@ -76,7 +76,6 @@
             tapping-term-ms = <500>;
             quick-tap-ms = <300>;
             require-prior-idle-ms = <250>;
-            retro-tap;
             flavor = "balanced";
         };
 
@@ -157,7 +156,6 @@
             tapping-term-ms = <2500>;
             quick-tap-ms = <300>;
             require-prior-idle-ms = <250>;
-            retro-tap;
         };
 
         toggle_off: toggle_off {
@@ -189,7 +187,6 @@
             tapping-term-ms = <2500>;
             quick-tap-ms = <300>;
             require-prior-idle-ms = <250>;
-            retro-tap;
         };
     };
 
